@@ -1,0 +1,18 @@
+package testdata
+
+// o contains all supported data types.
+type o struct {
+	b   bool
+	u32 uint32
+	u64 uint64
+	i32 int32
+	i64 int64
+	f32 float32
+	f64 float64
+	t   timestamp
+	s   text
+	a   binary
+	o   o
+	os  []o
+	ss  []text
+}

@@ -1,0 +1,28 @@
+# 2016-03-05
+删除 所有 json 注解小写输出
+/data/Dev/Go/Lib/src/github.com/shirou/gopsutil/cpu/cpu.go
+/data/Dev/Go/Lib/src/github.com/shirou/gopsutil/disk/disk.go
+/data/Dev/Go/Lib/src/github.com/shirou/gopsutil/mem/mem.go
+/data/Dev/Go/Lib/src/github.com/shirou/gopsutil/net/net.go
+/data/Dev/Go/Lib/src/github.com/shirou/gopsutil/load/load.go
+
+
+
+
+################################ 旧版
+### github.com\shirou\gopsutil\process\process_linux.go
+312 行 /proc/self/exe 获取的进程全路径，可能后面带了标记状态的，如运行中的进程二进制文件被替换掉后，出现 (deleted) 标记
+
+func (p *Process) fillFromExe() (string, error) {
+    pid := p.Pid
+    exePath := filepath.Join("/", "proc", strconv.Itoa(int(pid)), "exe")
+    exe, err := os.Readlink(exePath)
+    if err != nil {
+        return "", err
+    }
+    ep := string(exe)
+    if idx := strings.LastIndex(ep, " ("); idx > 0 && strings.HasSuffix(ep, ")") { // 后面 可能带了状态，删除掉
+        ep = strings.TrimSpace(ep[0:idx])
+    }
+    return ep, nil
+}

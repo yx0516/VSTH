@@ -1,0 +1,159 @@
+#tableData{
+	padding-top: 0;
+}
+#tableData .row{
+	margin:0;
+}
+/* for table
+*/
+table tr {
+	height: 40px;
+}
+table th {
+	width: 25%;
+}
+.editBtn .btn {
+	width: 141px;
+}
+.page-title .aw-user-nav.active {
+	margin: 10px auto;
+    width: 140px;
+    line-height: 36px;
+    height: 36px;
+    background-color: #1d7db1;
+    color: #fff;
+    text-align: center;
+    font-size: 16px;
+    border: 0 none;
+}
+.page-title .aw-user-nav {
+    width: 180px;
+    height: 35px;
+    margin: 16px 0 0 15px;
+    background: #e6e6e6;
+    /* border-radius: 2px; */
+}
+
+.aw-user-nav {
+    margin: 10px 0 0 10px;
+}
+.aw-publish-btn, .aw-user-nav, .aw-top-notification {
+    margin: 10px 0 10px 10px;
+}
+.page-title .aw-user-nav.active a {
+    color: #fff;
+}
+a {
+    cursor: pointer;
+    color: #155faa;
+}
+a:hover {text-decoration:none;
+    outline: none; }
+a:active {text-decoration:none;
+    outline: none; }
+a, a:visited {
+    color: #4fb1f7;
+}
+
+#TCMBrowse {
+	display: none;
+}
+#PrescriptionBrowse {
+	display: none;
+}
+.tab-content .tab-pane .btn-primary {
+	padding: 10px 20px;
+	margin-bottom: 10px; 
+}
+.tab-content .btn-default {
+	padding: 6px 12px;
+}
+.tab-content label.btn-default {
+	padding: 12px;
+	margin: 0;
+}
+.tab-content .tab-pane .dropdown-menu {
+	min-width: 100px;
+	max-height: 180px;
+}
+.btn-group label {
+	margin-bottom: 0;
+}
+#TCMBrowse {
+	margin-top: -54px;
+}
+#PrescriptionBrowse {
+	margin-top: -54px;
+}
+/* td.info {
+	table-layout: fixed;
+	max-width: 165px;
+} */
+#moleculeUpdate .container{
+	margin:0;
+	padding: 0;
+}
+/* section.split-blocks-marvin {
+	margin-right: 30px;
+} */
+section.split-blocks {
+	padding-left:0;
+}
+section.split-blocks-btn {
+	padding-right: 0;
+} 
+section.split-blocks .service-block h3, section.split-blocks .service-block p {
+	margin-left:0;
+}
+@media screen and (max-width: 767px) {
+	#TCMBrowse {
+		margin-top: 0;
+	}
+	#PrescriptionBrowse {
+		margin-top: 0;
+	}
+	/* #TCMBrowse .pull-right{
+		float: left;
+	} */
+}
+#Section3 .split-blocks .service-block i {
+    float: none;
+}
+#moleculeUpdate {
+	margin-top: 0;
+}
+#moleculeUpdate span input {
+	width: 94%;
+}
+.service-split .split-blocks .service-block {
+	margin-top: 30px;
+}
+#moleculeUpdate .mol-options {
+	margin-bottom: 45px;
+}
+
+.input-group .form-control[disabled]{
+	background-color: #fff;
+}
+table {
+	overflow: auto;
+	table-layout: fixed;;
+}
+table td{
+ 	white-space:nowrap; 
+ 	text-overflow:ellipsis; 
+ 	-o-text-overflow:ellipsis; 
+ 	overflow:hidden;
+ } 
+ table td span.value {
+ 	white-space:normal;
+ }
+ table th {
+ 	width: 220px;
+ } 
+ 
+ .upload-State {
+  display: inline-block;
+  margin-left: 15px;
+  visibility: hidden;  
+}

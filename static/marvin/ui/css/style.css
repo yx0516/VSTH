@@ -1,0 +1,6 @@
+#sketch{
+	overflow: hidden;
+	min-width: 550px; 
+	min-height: 450px;
+	border: 1px solid darkgray;
+}

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>3D Mol</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="../static/css/bootstrap.min.css">
+	<!--[if lt IE 9]>
+	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<style type="text/css">
+		.container {
+			height: 800px;
+		}
+		.mol-container {
+		    width: 80%;
+		    height: 600px;
+		    position: relative;
+		}
+	</style>
+</head>
+<body style="background-color: #ddd;">
+	<div class="container" >
+	    <div class="row">
+	       <div id="container-01" class="mol-container" data-style='line'></div>
+	    </div>
+	    <div class="row">
+	    	<div id="btn-group">
+	    		<button class="btn btn-primary js-load3DMol">动态加载3DMol</button>
+	    	</div>
+	    </div>
+	</div>
+	
+	<script type="text/javascript" src="../static/js/library/jquery-2.2.3.min.js"></script>
+	<script type="text/javascript" src="../static/js/library/bootstrap-3.3.5.min.js"></script>
+	<script type="text/javascript" src="../static/js/library/prefixfree.min.js"></script>
+	<script type="text/javascript" src="../static/js/library/json.js"></script>
+	<script src="http://cdn.jsdelivr.net/3dmol.js/latest/3Dmol-nojquery-min.js"></script>
+
+	<script>
+		$(function() {
+			$(".js-load3DMol").on({
+				click: function(){
+					let element = $('#container-01');
+					let config = { backgroundColor: 'white' };
+				  	let viewer = $3Dmol.createViewer( element, config );
+				  	$.ajax({
+				  		url : "123",
+				  		type : "POST",
+				  		data: {},
+				  		dataType: "html",
+				  		success: function(data) {
+				  			var tempJson = JSON.parse(data);
+				  			console.log(tempJson.Data);
+				  			let v = viewer;
+				  			let v2= viewer;
+				  			   
+						     v.addModel( tempJson.Data.pdb, "pdb" ); 
+						     v2.addAsOneMolecule(tempJson.Data.ligand, "sdf");
+						     v2.zoomTo();
+						     v2.render();				                        
+						     v.setStyle({}, {cartoon: {color: 'spectrum'}});				                                         
+						     v.zoom(1.2, 1000);                              
+						     v.zoomTo();
+						     v.render();
+						      
+				  		},
+				  		error: function(hdr, status, err) {
+					      console.error( "Failed to load PDB : " + err );
+					    }
+				  	});
+				}
+			});				  	
+		});
+	</script>
+</body>
+</html>

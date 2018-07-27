@@ -1,0 +1,200 @@
+﻿/*
+**  2016-11-24
+**  此页面按照圣杯布局（Holy Grail Layout）来实现
+**  作者：RCDD杜杰文
+**  #ccc 灰色
+**  #e4e9f0 灰色
+**  #F7F6F2 更淡的灰色
+**  #f7f8fa 淡灰色
+**	rgba(245,245,245,.5) 微信pc版聊天框底色
+**  #f4f5f7 更更淡
+**  #f6f9fa 更更更淡
+**  #fbfcfd 更更更更淡
+**  #edf2f9 B站侧边栏 淡紫色
+**  #2a6496 标题蓝
+**  #5bc0de btn-info天蓝色 rgb(91,192,222)
+**  #39b3d7 btn-info: hover时更深的蓝色 rgb(57,179,215)
+**  #828282 导航黑
+**  #0099CC 暗湖蓝色
+**  #6699CC 蓝灰色
+*/ 
+
+/*	@group general styles 一般性样式(主体样式，reset样式，链接，标题，其他元素)
+--------------------------------------------------------------------------------------------------*/
+
+body {
+    background: #34495e;
+}
+.gn-submenu li a.gn-icon-creat {
+    color: #c1c9d1
+}
+/*	@group helper styles 辅助样式(表单，通知和错误，一致的条目)
+--------------------------------------------------------------------------------------------------*/
+
+/*  @group page structure 页面结构(标题，页脚，和导航，布局，其他页面结构元素) 
+--------------------------------------------------------------------------------------------------*/
+.HolyGrail-body {
+	/* display: flex; 
+        background-color: #fbfcfd; */
+    /* border:5px solid #ccc; */
+}
+
+.HolyGrail-content {
+	/* flex: 1; */
+	padding: 0;
+    border-left:5px solid #ccc;
+    border-right:5px solid #ccc;
+    border-top:5px solid #ccc;
+
+}
+
+.HolyGrail-nav, .HolyGrail-aside {
+    /* border-right:5px solid #ccc; */
+    border-top:5px solid #ccc;
+	/* 两个边栏的宽度设为25% */
+	/* flex: 0 0 25%; */
+	
+	/* background-color:; 
+    background-color: #f6f9fa; */
+}
+
+.HolyGrail-nav {
+	/* 导航放到最左边 */
+	order: -1;
+}
+/*	如果是小屏幕，躯干的三栏自动变为垂直叠加	*/
+@media (max-width: 768px) {
+  .HolyGrail-body {
+    flex-direction: column;
+    flex: 1;
+  }
+  .HolyGrail-nav,
+  .HolyGrail-ads,
+  .HolyGrail-content {
+    flex: auto;
+  }
+}
+
+.sbvs-result {
+    padding-top: 5em;
+}
+
+.mol-container {
+    position: relative;
+    width:100%;
+    height: 516px;
+    margin:0;
+    border-bottom:5px solid #ccc;
+}
+.molDisplay {
+    height: 258px;
+    margin-right: 0;
+    border-bottom:5px solid #ccc;
+}
+.molAndVendor {
+    height: 250px;
+    margin-left: 14px;
+    margin-top: 3px;
+}
+/*  @group page componets 页面组件(各个页面)
+--------------------------------------------------------------------------------------------------*/ 
+/*	手风琴下拉菜单样式	*/
+a:hover, a:focus{
+    outline: none;
+    text-decoration: none;
+}
+#accordion .panel{
+    box-shadow: none;
+    border: none;
+    border-radius:0;
+    border-bottom:5px solid #ccc; 
+}
+#accordion .panel-heading{
+    padding:0;
+    background-color:#fff;
+}
+#accordion .panel-title a{
+    display: block;
+    color: #333;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 14px 40px;
+    background: #0099CC;
+    border-bottom: 1px solid #ccc;
+    position: relative;
+}
+#accordion .panel-title a.collapsed{
+    border-top: 0;
+    color: #333;
+    border-bottom:1px solid transparent;
+}
+#accordion .panel-title a:before,
+#accordion .panel-title a.collapsed:before{
+    content: "\f068";
+    font-family: FontAwesome;
+    position: absolute;
+    top: 10px;
+    left: 15px;
+    font-size: 14px;
+    line-height: 24px;
+    color: #fbfcfd;
+}
+#accordion .panel-title a.collapsed:before{
+    content: "\f067";
+}
+#accordion .panel-body{
+    color: #666464;
+    font-size: 14px;
+    line-height: 20px;
+    border-top: 0 none;
+    padding: 2px 2px;
+    height: 208px;
+    overflow-y: auto;
+}  
+
+/*  @group overrides 覆盖
+--------------------------------------------------------------------------------------------------*/
+
+.list-group-item.active, 
+.list-group-item.active:focus, 
+.list-group-item.active:hover {
+    background-color: #6699CC !important;
+    border-color: #6699CC !important;
+} 
+.sbvs-result .panel-group {
+    margin-bottom: 0;
+}
+
+.sbvs-result .panel-group .panel+.panel {
+     margin-top: 0; 
+}
+.list-group-item {
+    color: #31708f;
+}
+.list-group-item .text-info {
+    font-weight: 700;
+}
+
+.sbvs-result  {
+  position: relative;
+}
+.loading-component {
+  position: absolute;
+}
+.loading-component {
+    border-radius: 5px;
+    display: none;
+    position:absolute;
+    top:80px;
+    left: 0;
+    bottom: 80px;
+   /*  background-color: rgba(52,73,94,.7); */
+    background-color: rgba(255,255,255,.9);
+    z-index: 1001;
+}
+.loading-component .loading {
+  width: 400px;
+    /* color: #fff; */
+    color: #FF9966;
+    font-size: 50px;
+}

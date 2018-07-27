@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VSPlatform Job</title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+
+    <link rel="stylesheet" type="text/css" href="../static/css/bootstrap.min.css" media="all">
+
+    <link rel="stylesheet" type="text/css" href="../static/css/font-awesome.min.css">
+
+    <link rel="stylesheet" type="text/css" href="../static/css/bootstrap-table.css">
+
+    <link rel="stylesheet" href="http://tawian.io/text-spinners/spinners.css">
+
+    <link rel="stylesheet" type="text/css" href="../static/css/sidebar.css" />
+
+    <link rel="stylesheet" type="text/css" href="../static/css/common.css" />
+
+    <link rel="stylesheet" type="text/css" href="../static/css/myjob.css">
+
+    <!--[if lt IE 9]>
+	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+    <style type="text/css">
+        .container .table>tbody>tr>td,
+        .table>tbody>tr>th,
+        .table>tfoot>tr>td,
+        .table>tfoot>tr>th,
+        .table>thead>tr>td,
+        .table>thead>tr>th {
+            vertical-align: middle;
+        }
+        
+        .row {
+            margin-left: 0;
+            margin-right: 0;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container">
+        <ul id="gn-menu" class="gn-menu-main">
+            <li class="gn-trigger">
+                <a class="gn-icon gn-icon-menu"><span>Menu</span></a>
+                <nav class="gn-menu-wrapper gn-open-part">
+                    <div class="gn-scroller">
+                        <ul class="gn-menu">
+                            <li class="gn-search-item">
+                                <input placeholder="Search" type="search" class="gn-search">
+                                <a class="gn-icon gn-icon-search"><span>Search</span></a>
+                            </li>
+
+                            <li>
+                                <a class="gn-icon gn-icon-library">Library</a>
+                                <ul class="gn-submenu2" data-display="none" style="display: none">
+                                    <li><a class="gn-icon gn-icon-sys-library">Sys Library</a></li>
+                                    <li><a class="gn-icon gn-icon-my-library">My Library</a></li>
+                                </ul>
+                            </li>
+                            <li><a class="gn-icon gn-icon-jobInfo">Jobs</a></li>
+                            <li>
+                                <a class="gn-icon gn-icon-creat">Create</a>
+                                <ul class="gn-submenu" data-display="none" style="display: none">
+                                    <li><a class="gn-icon gn-icon-LBVS">Ligand-based VS</a></li>
+                                    <!-- <li><a class="gn-icon gn-icon-SBVS">Structure-based VS</a></li> -->
+                                    <!-- <li><a class="gn-icon gn-icon-MD underDev">Molecular Dynamic Simulation
+									</a></li> -->
+                                </ul>
+                            </li>
+                            <li><a class="gn-icon gn-icon-cog underDev">Settings</a></li>
+                            <li><a class="gn-icon gn-icon-help underDev">Help</a></li>
+                            <li><a class="gn-icon gn-icon-info underDev">About us</a></li>
+                        </ul>
+                    </div>
+                    <!-- /gn-scroller -->
+                </nav>
+            </li>
+
+            <li><a href="login.html" id='log' class="">Log in</a></li>
+            <!-- <li><a href="#">Sign up</a></li> labelFinish:"Finish",-->
+            <li><a href="index.html">VSTH</a></li>
+            <!-- <li><a class="codrops-icon codrops-icon-prev" href="#"><span>Previous Demo</span></a></li> -->
+            <li><a class="codrops-icon codrops-icon-drop user-info" href="#"><span></span></a></li>
+        </ul>
+    </div>
+    <!-- <header class="row intro-head">
+		<h1>Virtual Screening Platform
+			<span>A large platform for molecule docking, molecule modeling, and LBVS</span>
+		</h1>	
+		<div style="text-align:center;clear:both;">			
+		</div>
+	</header>  data-show-refresh="true" -->
+    <!-- /container -->
+    <div class="container job-info">
+        <div class="row panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Sys Libraries List</h3>
+            </div>
+            <div class="panel-body table-responsive" id="job-content" style="display: none;">
+                <button class="btn btn-default pull-right js-reload-sysLibrary" style="margin-top: 10px;"><i class='glyphicon glyphicon-refresh icon-refresh'></i></button>
+                <table data-sort-name="Id" data-sort-order="asc" data-show-columns="true" data-show-toggle="true" data-trim-on-search="true" data-detail-formatter="detailFormatter" data-search="true" class="table table-striped table-hover js-job-table">
+                    <thead>
+                        <tr>
+                            <th data-field="Id" data-sortable="true" data-switchable="false">Id</th>
+                            <th data-field="Name" data-sortable="true">Name</th>
+                            <th data-field="UploadTime" data-sortable="true">UploadTime</th>
+                            <th data-field="Confs" data-sortable="true">Confs</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+
+        </div>
+        <section class="loading-component">
+            <span class="loading dots"><samll>System Libraries loading...</samll></span>
+        </section>
+    </div>
+
+
+
+    <!-- for global JS -->
+    <script type="text/javascript" src="../static/js/library/jquery-2.2.3.min.js"></script>
+    <script type="text/javascript" src="../static/js/library/bootstrap-3.3.5.min.js"></script>
+    <script type="text/javascript" src="../static/js/library/json.js"></script>
+    <script type="text/javascript" src="../static/js/library/classie.js"></script>
+    <script type="text/javascript" src="../static/js/library/gnmenu.js"></script>
+    <script>
+        new gnMenu(document.getElementById('gn-menu'));
+    </script>
+    <script type="text/javascript" src="../static/js/library/timer.jquery.min.js"></script>
+    <!-- for bootstrap table -->
+    <script type="text/javascript" src="../static/js/library/bootstrap-table.js"></script>
+    <!-- <script type="text/javascript" src="../static/js/library/bootstrap-table-editable.js"></script>
+	<script type="text/javascript" src="../static/js/library/bootstrap-editable.js"></script> -->
+    <!-- <script type="text/javascript" src="../static/js/library/bootstrap-table-export.js"></script>
+	<script type="text/javascript" src="../static/js/library/tableExport.js"></script> -->
+    <script type="text/javascript" src="../static/js/library/date.format.js"></script>
+    <script type="text/javascript" src="../static/js/common.js"></script>
+    <script type="text/javascript" src="../static/js/loadLibrary.js"></script>
+</body>
+
+</html>

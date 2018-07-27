@@ -1,0 +1,133 @@
+#container {
+		  position: absolute;
+		  top: 0;
+		  left: 0;
+		  right: 0;
+		  bottom: 0;
+		  margin: 15px;
+		  font-family: 'Helvetica', Arial, sans-serif;
+		  font-size: 90%;
+		  line-height: normal;
+		  font-smoothing: antialiased;
+		}
+
+		#frame {
+		  position: relative;
+		  width: 100%;
+		  height: 100%;
+		}
+		#frame .frame {
+		  position: relative;
+		  overflow: hidden;
+		}
+		#frame .frame .inset .image {
+		  cursor: pointer;
+		  cursor: zoom-in;
+		  background-position: center;
+		  background-size: cover;
+		}
+		#frame .frame .inset .info .title {
+		  cursor: pointer;
+		  display: inline-block;
+		  font-weight: bold;
+		}
+		#frame .frame .inset .info .description {
+		  display: block;
+		  overflow: hidden;
+		  text-overflow: ellipsis;
+		  white-space: nowrap;
+		}
+		#frame .frame .inset .info [class*='icon-'] {
+		  cursor: pointer;
+		  margin-left: 10px;
+		  display: inline-block;
+		  font-weight: bold;
+		}
+		#frame .frame .inset .info [class*='icon-']:before {
+		  margin-right: 5px;
+		  font-weight: normal;
+		}
+
+		.grid {
+		  display: flex;
+		  flex-flow: row wrap;
+		  color: #FFF;
+		}
+		.grid .frame {
+		  width: 250px;
+		  height: 250px;
+		  flex: 1 0 250px;
+		}
+		.grid .frame .inset {
+		  position: absolute;
+		  top: 0;
+		  left: 0;
+		  right: 0;
+		  bottom: 0;
+		  margin: 10px;
+		  border:1px solid #DDD;
+		}
+		.grid .frame .inset .image {
+		  position: absolute;
+		  top: 0;
+		  left: 0;
+		  right: 0;
+		  bottom: 0;
+		}
+		.grid .frame .inset .info {
+		  position: absolute;
+		  left: 0;
+		  right: 0;
+		  bottom: 0;
+		  padding: 10px;
+		  overflow: hidden;
+		}
+		.grid .frame .inset .info .shares {
+		  margin-top: 10px;
+		  display: block;
+		  font-size: 85%;
+		  text-align: right;
+		}
+
+		.list {
+		  color: #333;
+		}
+		.list .frame {
+		  height: 75px;
+		  line-height: 75px;
+		  box-shadow: inset 0 1px #EEE;
+		}
+		.list .frame:first-child {
+		  box-shadow: none;
+		}
+		.list .frame .inset .image {
+		  position: absolute;
+		  top: 0;
+		  left: 0;
+		  bottom: 0;
+		  width: 55px;
+		  height: 55px;
+		  margin: auto 10px;
+		}
+		.list .frame .inset .info {
+		  position: absolute;
+		  top: 0;
+		  left: 75px;
+		  bottom: 0;
+		}
+		.list .frame .inset .info .title {
+		  float: left;
+		  overflow: hidden;
+		  text-overflow: ellipsis;
+		  white-space: nowrap;
+		}
+		.list .frame .inset .info .description {
+		  float: left;
+		  max-width: 40%;
+		  margin-left: 15px;
+		}
+		.list .frame .inset .info .shares {
+		  float: left;
+		  margin-left: 10px;
+		  font-size: 85%;
+		}

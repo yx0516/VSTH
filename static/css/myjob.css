@@ -1,0 +1,50 @@
+﻿/*
+**	#fbfcfd 导航栏白
+*/
+body {
+    background: #34495e;
+}
+.job-info .panel-body a{
+	text-decoration: none;
+}
+.job-info {
+    margin: 0 auto;
+    padding-top: 13em; 
+	border-top: 1px solid #c6d0da;
+}
+.job-info .panel-title {
+
+	font-size: 30px;
+	color: #34495e;
+	padding:5px;
+	text-align: center;
+}
+.gn-submenu li a.gn-icon-creat {
+	color: #c1c9d1
+}
+/* #job-content {
+	background-color: #fff;
+} */
+.job-info {
+	position: relative;
+}
+.loading-component {
+	position: absolute;
+}
+.loading-component {
+    border-radius: 5px;
+    display: none;
+    position:absolute;
+    top:80px;
+    left: 15px;
+    bottom: 80px;
+   /*  background-color: rgba(52,73,94,.7); */
+    background-color: rgba(255,255,255,.9);
+    z-index: 1001;
+}
+.loading-component .loading {
+	width: 610px;
+    /* color: #fff; */
+    color: #FF9966;
+    font-size: 50px;
+}

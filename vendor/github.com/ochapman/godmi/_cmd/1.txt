@@ -1,0 +1,126 @@
+[sudo] password for aison: 
+Port Information
+	Internal Reference Designator: J12
+	Internal Connector Type: None
+	External Reference Designator: PS/2 Mouse
+	External Connector Type: Circular DIN-8 male
+	Type: Keyboard Port
+System Slot PCI Slot J14
+	Slot Designation: PCI
+	Slot Type: 32 bit
+	Slot Data Bus Width: Available
+	Current Usage: Long Length
+	Slot Length: %!s(godmi.SystemSlotID=4)
+	Slot ID: Slot’s opening is shared with another slot (for example, PCI/EISA shared slot).
+	Slot Characteristics1: PCI slot supports Power Management Event (PME#) signal.
+	Slot Characteristics2: %!s(godmi.SystemSlotSegmengGroupNumber=0)
+	Segment Group Number: %!s(godmi.SystemSlotNumber=0)
+	Bus Number: %!s(godmi.SystemSlotNumber=144)
+	Device/Function Number: %!s(MISSING)
+On Board Devices Information
+		
+		Device 0: Enabled: false: Description: Video%!(EXTRA string=VMware SVGA II)
+		Device 1: Enabled: false: Description: Sound%!(EXTRA string=ES1371)
+Chassis Information
+	Manufacturer: No Enclosure
+	Type: Other
+	Lock: Not Present
+	Version: N/A
+	Serial Number: None
+	Asset Tag: No Asset Tag
+	Boot-up State: Safe
+	Power Supply State: Safe
+	Thermal State: Safe
+	Security Status: None
+Processor Information
+	Socket Designation: CPU #127
+	Processor Type: CentralProcessor
+	Family: 8086
+	Manufacturer: GenuineIntel
+	ID: %!s(godmi.ProcessorID=0)
+	Version: Intel(R) Core(TM) i7-4700MQ CPU @ 2.40GHz
+	Voltage: 2.9V
+	External Clock: 0
+	Max Speed: 30000
+	Current Speed: 2400
+	Status: %!s(PANIC=runtime error: index out of range)
+	Upgrade: Replaceable Piggy Back
+	L1 Cache Handle: 275
+	L2 Cache Handle: 403
+	L3 Cache Handle: 65535
+	Serial Number: Not Specified
+	Asset Tag: Not Specified
+	Part Number: Not Specified
+	Core Count: 2
+	Core Enabled: 2
+	Thread Count: 0
+	Characteristics: %!s(PANIC=runtime error: index out of range)
+	Family2: 8086
+Cache Information
+	Socket Designation: L2
+	Configuration: Cache Configuration:
+	Level: Level2
+	Socketed: false
+	Location: External
+	Enabled: false
+	Mode:
+		%!(EXTRA godmi.CacheOperationalMode=Write Back)
+	Maximum Cache Size: %!s(uint16=24576) * 1K
+	Installed Size: %!s(uint16=0) * 1K
+	SupportedSRAM Type: %!s(PANIC=runtime error: index out of range)
+	CurrentSRAM Type: Pipeline Burst
+	Cache Speed: %!s(godmi.CacheSpeed=0)
+	Error Correction Type: Unknown
+	System Cache Type: Unknown
+	Associativity: Direct Mapped
+OEM strings: strings: 0 
+		strings: 1 
+		
+Physcial Memory Array
+	Location: System board or motherboard
+	Use: System memory
+	Memory Error Correction: None
+	Maximum Capacity: 68157440
+	Memory Error Information Handle: 65534
+	Number of Memory Devices: 64
+	Extended Maximum Capacity: 0
+Memory Device
+	Physical Memory Array Handle: 37
+	Memory Error Information Handle: 65535
+	Total Width: 32
+	Data Width: 32
+	Size: 0
+	Form Factor: DIMM
+	Device Set: 0
+	Device Locator: NVD #63
+	Bank Locator: NVD #63
+	Memory Type: Other
+	Type Detail: %!s(uint16=0)
+	Speed: %!d(string=Not Specified)
+	Manufacturer: Not Specified
+	Serial Number: 
+	Asset Tag: Not Specified
+	Part Number: %!s(uint8=0)
+	Attributes: %!s(uint32=0)
+	Extended Size: %!s(uint16=0)
+	Configured Memory Clock Speed: 22094
+	Minimum voltage: 8260
+	Maximum voltage: 13859
+	Configured voltage: %!d(MISSING)
+32 Bit Memory Error Information
+	Error Type: OK
+	Error Granularity: Unknown
+	Error Operation: Unknown
+	Vendor Syndrome: 0
+	Memory Array Error Address: 2147483648
+	Device Error Address: 2147483648
+	Error Resoluton: 2147483648
+Base Board Information
+	Manufacturer: Intel Corporation
+	Product Name: 440BX Desktop Reference Platform
+	Version: None
+	Serial Number: None
+	Asset Tag: Not Specified
+	Features:
+	Location In Chassis: Not Specified
+	Type: Out Of Spec

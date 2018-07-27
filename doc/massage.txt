@@ -1,0 +1,5 @@
+type ResponseMsg struct {
+	State int // 0:成功,-1：失败
+	Msg   string
+	Data  interface{}
+}

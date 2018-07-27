@@ -1,0 +1,313 @@
+/*
+**  2016-11-16
+**  作者：RCDD杜杰文
+**  docking页面样式设置
+**  采用弹性盒子布局
+*/
+/* body {
+    background: #f6f9fa;
+} */
+body {
+    background: #34495e;
+    font-family: "Microsoft YaHei", 宋体, "Segoe UI", "Lucida Grande", Helvetica, Arial, sans-serif, FreeSans, Arimo;
+}
+.sbvs-content {
+    margin: 0 auto;
+    padding:12em 0 0 0; 
+    border-top: 1px solid #c6d0da;
+}
+/*  @group  general styles
+--------------------------------------------------------------------------------------------------------*/
+h1,h2,h3,h4,h5 { border-radius: 3px;}
+/* p { text-align: center;} */
+a:hover { text-decoration: none;}
+a:link, a:visited { text-decoration: none;}
+a:link, a:visited { text-decoration: none;}
+:link, :visited, ins { text-decoration: none;}
+a, input, button { outline: none;}
+a { outline: none;}
+
+body h2 {
+    padding: 15px 0;
+    text-align: center;
+    font-size: 40px;
+    color: rgba(0,0,0,.7);
+
+}
+body h3 {
+    margin-top: 0;
+    padding-top: 20px;
+    text-align: center;
+    padding: 20px 0 12px 15px;
+    color: #888;
+}
+.form-group label {
+    padding-right: 0;
+}
+
+/*  @group  helper styles
+--------------------------------------------------------------------------------------------------------*/
+.nodes-ctrl label {
+    height: 35px;
+    line-height: 35px;
+    margin-bottom: 0;
+    padding-right: 0;
+    font-size: 16px;
+}
+.set-center-site .col-sm-3 {
+    padding-right: 0;
+    margin-left: 15px;
+}
+label.control-label {
+    line-height: 2.2;
+}
+.gn-submenu li a.gn-icon-creat {
+    color: #c1c9d1
+}
+/*  @group  page structure
+------------------------------------------------------------------------------------------------------*/
+#rootwizard {
+    width: 80%;
+    margin:0 auto;
+}
+.tab-content {
+    margin-top: 30px;
+}
+.template-content {
+    padding-left: 0;
+    padding-right: 0;
+}
+.template-content h1 {
+    margin-bottom: 20px;
+    padding: 0 0 10px 0;
+    text-align: center;
+    font: 30px "Trebuchet MS", Arial, Helvetica, sans-serif;
+    
+    display: block;
+    border-bottom: 1px solid #ececec;
+    color: #969696;
+    
+}
+.template-content h1>span {
+    display: block;
+    font-size: 14px;
+    color: #C4C2C2;
+}
+.sub-template {
+    background-color: #f6f9fa;
+}
+
+.set-position {
+    margin-top: 30px;
+    padding-left: 52px;
+}
+.target-config {
+    width: 90%;
+    margin:0 auto;
+}
+.type-select {
+    margin-top: 20px;
+}
+.type-select section {
+    margin-bottom: 12px;
+}
+.type-select-2 {
+    margin-left: 30px;
+    margin-right: 55px;
+}
+.type-select-2 .btn-primary {
+    background-color: #0099CC;
+    border-color: #0099CC;
+} 
+/*  @group  sub-template-content    */
+
+.sub-template select {   
+    width: 77%;
+}   
+ .nodes-ctrl {
+    width: 80%;
+    margin:0 auto;
+}  
+/*  @group  sub-template-first */
+ .set-positon .form-group{
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.sub-template-second {
+    background-color: rgba(237,242,249,.5);
+} 
+.set-nodes {
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+.node-note {
+    width: 80%;
+    margin:0 auto;
+    padding-left: 15px;
+    font-size: 14px;
+    line-height: 1.8;
+
+}
+/*  @group  submitBtn */
+.submitBtn {
+    display: -webkit-flex; 
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 50px;
+}
+.btn-info {
+    margin:0 60px;
+    font-size: 15px;
+}
+
+/*  @group  page components
+------------------------------------------------------------------------------------------------------*/
+/*  @group  select2 style override  */
+
+.textTip {
+    display: inline-block;
+    width: 11%;
+    padding:10px 10px 10px 0;
+    text-align: left; 
+    margin-left: 30px;
+    font-size: 14px; 
+}
+ 
+.target-config {
+    margin-top: 30px;
+    padding-bottom: 20px;
+}
+.sbvs-page .topSelectSection {
+    border-bottom: 1px solid #ddd;
+}
+
+.type-select-2 form {
+    margin-top: 10px;
+} 
+.sub-template label {
+    margin-top: 6px;
+} 
+.sub-template .form-group label {
+    margin-top: 0;
+}
+.container .input-group-btn:last-child>.btn,
+.container .input-group-btn:last-child>.btn-group {
+    width: 120px;
+    padding-left: 0;
+}
+/*  @group  overrides
+------------------------------------------------------------------------------------------------------*/
+/* @grouop lbvs */
+.mol-structure {
+    display: flex;
+    display: -webkit-flex;
+    flex-flow: row wrap;
+    width: 100%;
+    /* height: 400px; */
+}
+.mol-container {
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    flex: 0 0 auto;
+    width: 182px;
+    height: 200px;
+    position: relative;
+}
+.mol-canvas {
+    position: relative;
+    width: 180px;
+    height: 170px;
+}
+
+.funcBars1 {
+    position: relative;
+    top: -170px;
+    left: 0;
+}
+.funcBars2 {
+
+}
+
+.molselect {    
+    position: absolute;
+    top: 0;
+    left: 3px;
+    font-size: 14px;
+    /*z-index: 999;*/
+}
+.viewMolInfo {    
+    position: absolute;
+    top: 3px;
+    right: 3px;
+    font-size: 14px;
+    /*z-index: 999;*/
+}
+.simpleInfo { 
+    position: absolute;
+    bottom: -1px;
+    left: 5px;
+    font-size: 12px;
+    margin-bottom: 0;
+}
+#step-1 {
+    position: relative;
+}
+.molDetail {
+    display: none;
+    position: absolute;
+    top: 175px;
+    left: 226px;
+    z-index: 1000;
+}
+.close{ 
+    position:absolute; 
+    right:7px; 
+    top:8px; 
+    width: 22px;
+    height: 22px;
+    margin:0;
+    color: #fff;
+    opacity: .9;
+    filter: alpha(opacity=90)
+    font-weight: 400;    
+    cursor:pointer;   
+}
+.loading-component, .loading-component2 {
+    border-radius: 5px;
+    display: none;
+    position:absolute;
+    top: -10px;
+    left: 5px;
+   /*  background-color: rgba(52,73,94,.7); */
+    background-color: rgba(255,255,255,.9);
+    z-index: 1001;
+}
+.loading-component .loading, .loading-component2 .loading {
+    margin-left:340px;
+    margin-right:285px;
+    margin-top: 250px;
+    width: auto;
+    /* color: #fff; */
+    color: #FF9966;
+    font-size: 50px;
+}
+/* */
+.selMolID-left {
+    width: 250px;
+    line-height: 25px;
+    margin-left: 57px;
+    margin-bottom: 6px;
+    border-radius: 3px;
+    text-align: center;
+    background: #F8F8F8;
+    
+}
+#molContainer-left {
+    position: relative;
+    border: 1px solid #fff;
+    border-radius: 3px;
+    height: 250px;
+    width: 250px;
+    margin-left: 57px;
+}

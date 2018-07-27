@@ -1,0 +1,290 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- Document meta -->
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- Document title -->
+	<title>HPVS Docking</title>	
+
+	<!-- External CSS -->
+	<link rel="stylesheet" type="text/css" href="../static/css/bootstrap.min.css" media="all">
+
+	<link rel="stylesheet" type="text/css" href="../static/css/font-awesome.min.css">
+
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700" >
+
+	<link rel="stylesheet" type="text/css" href="../static/css/step.css">	
+
+	<link rel="stylesheet" type="text/css" href="../static/css/radio.css">
+
+	<link rel="stylesheet" type="text/css" href="../static/css/select2.css">
+
+    <link rel="stylesheet" type="text/css" href="../static/css/fileinput.min.css" media="all">	
+
+    <link rel="stylesheet" type="text/css" href="../static/css/docking.css">
+	<!--[if IE]>
+		<script src="http://libs.useso.com/js/html5shiv/3.7/html5shiv.min.js"></script>
+	<![endif]-->	
+</head>
+<body class="page" style="background: #fbfcfd;">
+
+	<!-- 导航栏 -->
+	<header class="navbar navbar-default navbar-static-top" role="navigation">
+		<div class="container">
+			<div class="navbar-header"> 
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> 
+					<span class="sr-only">Toggle navigation</span> 
+					<span class="icon-bar"></span> 
+					<span class="icon-bar"></span> 
+					<span class="icon-bar"></span> 
+				</button>
+				<div id="logo"> 
+					<a href="#"> <img class="logo-main logo-reg" src="../static/images/logo2.png" alt="TCMAnalyzer"> </a>
+				</div>
+			</div>
+			<nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+				<ul id="menu-primary-navigation" class="nav navbar-nav">
+					<li class="menu-home">
+						<a href="index.html">Home</a>
+					</li>
+					<li class="menu-features">
+						<a href="#">Analyze</a>
+					</li>
+					<li class="menu-reviews">
+						<a href="myData.html">My Data</a>
+					</li>
+					<li class="menu-help-center">
+						<a href="news.html">News</a>
+					</li>
+					<li class="menu-help-center">
+						<a href="help.html">Help</a>
+					</li>
+				</ul> 
+			</nav>
+		</div>
+	</header>
+	<!-- 正文 -->
+	<div class="wrap" role="document" style="padding: 70px 0; font-family: 'Montserrat', sans-serif;">
+		<section id="moleculeUpdate" class="" style="padding:0;">
+			<div class="container">
+				<!--=======================标题========================-->
+				<h2 style="width: 80%;margin:30px auto">Structure - based virtual screening</h2>				
+				<div id="rootwizard">
+					<ul>
+					  	<li><a href="#tab1" data-toggle="tab"><span class="label">1</span> First</a></li>
+						<li><a href="#tab2" data-toggle="tab"><span class="label">2</span> Second</a></li>
+						<li><a href="#tab3" data-toggle="tab"><span class="label">3</span> Third</a></li>
+					</ul>
+					<!-- <div class="progress">
+						<div class="progress-bar progress-bar-striped progress-bar-info active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>
+					</div> -->
+
+					<div class="tab-content">
+					    <!-- =======================模板分子(PDB)设定======================== -->							
+					    <div class="tab-pane" id="tab1">
+					    	<section class="col-sm-12 template-content template-first">
+								<div class="sub-template">
+									<h1>Select template target file 
+										<span>Please fill all the texts in the fields.</span>
+									</h1>
+									<div class="target-config topSelectSection">										
+										<div class="radio-btn checkedRadio">
+											<i><input type="radio" name="template-radio-auto" value="template"></i>
+										</div>
+										<label>Manual selection</label>										
+										<div class="type-select">
+											<section class="js-selectTarget">
+												<span class="textTip">Target :</span>
+												<select class="js-selLibTarget" style="width: 77%">
+													<option value="Latin name" selected="selected">Latin Name</option>
+													<option value="PinYin name">PinYin name</option>
+													<option value="Chinese name">Chinese name</option>
+												</select>
+											</section>
+											<section class="js-selectPDB ">
+												<span class="textTip">PDB :</span>
+												<select class="js-selLibPDB" style="width: 77%"></select>
+											</section>
+										</div>
+									</div>
+					
+									<div class="target-config bottomSelectSection">
+										<div class="radio-btn ">
+											<i><input type="radio" name="template-radio-manual" value="manual"></i>
+										</div>
+										<label>Upload a template</label>
+					
+										<div class="type-select-2">
+											<form enctype="multipart/form-data">
+								                <div class="form-group">
+								                    <input id="file-1" class="file" type="file" name="user-pdb-file">
+								                </div>
+								            </form>
+										</div>
+										<div class="row set-position" style="display: none"> 
+								   			<div class="col-sm-6 set-center-site">
+								   				<p>Target Center Settings</p>
+								   				<div class="row form-group">
+								   					<label for="x-coordinate" class="col-sm-5 control-label">X coordinate: </label>
+					   								<div class="col-sm-7">
+					   									<input type="text" class="form-control" id="x-coordinate" placeholder="">
+					   								</div>
+								   				</div>
+								   				<div class="row form-group">
+								   					<label for="y-coordinate" class="col-sm-5 control-label">Y coordinate: </label>
+					   								<div class="col-sm-7">
+					   									<input type="text" class="form-control" id="y-coordinate" placeholder="">
+					   								</div>
+								   				</div>
+								   				<div class="row form-group">
+								   					<label for="z-coordinate" class="col-sm-5 control-label">Z coordinate: </label>
+					   								<div class="col-sm-7">
+					   									<input type="text" class="form-control" id="z-coordinate" placeholder="">
+					   								</div>
+								   				</div>	
+								   			</div>
+								   			<div class="col-sm-6 set-region-site">
+								   				<p>Target site area setting</p>
+								   				<div class="row form-group">
+								   					<label for="region-depth" class="col-sm-2 control-label">Depth: </label>
+					   								<div class="col-sm-7">
+					   									<input type="text" class="form-control" id="region-depth" placeholder="">
+					   								</div>
+								   				</div>
+								   				<div class="row form-group">
+								   					<label for="region-width" class="col-sm-2 control-label">Width: </label>
+					   								<div class="col-sm-7">
+					   									<input type="text" class="form-control" id="region-width" placeholder="">
+					   								</div>
+								   				</div>
+								   				<div class="row form-group">
+								   					<label for="region-height" class="col-sm-2 control-label">Height: </label>
+					   								<div class="col-sm-7">
+					   									<input type="text" class="form-control" id="region-height" placeholder="">
+					   								</div>
+								   				</div>							   				
+								   			</div>
+							   			</div>
+									</div>         						
+								</div>								
+							</section>
+					    </div>
+					    <!-- =======================小分子(Molecule)设定======================== -->
+						<div class="tab-pane" id="tab2">
+							<section class="col-sm-12 template-content template-second">
+								<div class="sub-template">
+									<h1>Select template target file 
+										<span>Please fill all the texts in the fields.</span>
+									</h1>
+									<div class="target-config topSelectSection">
+										
+											<div class="radio-btn checkedRadio">
+												<i><input type="radio" name="radio-btn" checked="checked"></i>
+											</div>
+											<label>Manual selection</label>
+										
+										<div class="type-select">
+											<section class="js-selectLibMol select-style">
+												<span class="textTip">Libarary :</span>
+												<select class="js-selLibMol" style="width: 77%">
+													<option value="Latin name" selected="selected">Latin Name</option>
+													<option value="PinYin name">PinYin name</option>
+													<option value="Chinese name">Chinese name</option>
+												</select>
+											</section>
+										</div>
+									</div>
+					
+									<div class="target-config bottomSelectSection">									
+										<div class="radio-btn">
+											<i><input type="radio" name="radio-btn" checked="checked"></i>
+										</div>
+										<label>Upload a template</label>										
+										<div class="type-select-2">
+											<form enctype="multipart/form-data">
+								                <div class="form-group">
+								                    <input id="file-1" class="file" type="file" name="user-sd-file">
+								                </div>
+								            </form>
+										</div>
+									</div>         						
+								</div>								
+							</section>
+					    </div>
+					    <!-- =======================参数设定 & 任务提交按钮======================== -->
+					    <div class="tab-pane" id="tab3">
+					    	<section class="col-sm-12 template-content">
+								<div class="sub-template set-nodes">
+									<h1>Parameter settings 
+										<span>Please fill all the texts in the fields.</span>
+									</h1>
+									<div class="row form-group nodes-ctrl">
+							   			<label for="set-nodes-cnt" class="col-sm-2 control-label">Nodes: </label>
+		   								<div class="col-sm-9">
+		   									<input type="text" class="form-control" id="set-nodes-cnt" placeholder="Enter the number of nodes(1-1000)">
+		   								</div>
+							   		</div>
+					
+									<div class="row submitBtn js-jobSubmit">
+										<button class="btn btn-info js-dock-submit"><i class="fa fa-upload"></i>&nbspSubmit</button>
+										<button class="btn btn-info js-return"><i class="fa fa-reply"></i>&nbspReturn</button>
+									</div>
+							   							   		        						
+								</div>
+																
+							</section>
+					    </div>													
+					</div>
+				</div>	
+			</div> 
+		</section>
+	</div>
+
+	<div class="prefooter"></div>
+	<footer>
+		
+	</footer>
+	<!-- for global JS -->
+	<script type="text/javascript" src="../static/js/library/jquery-2.2.3.min.js"></script>
+	<script type="text/javascript" src="../static/js/library/bootstrap-3.3.5.min.js"></script>
+	<script type="text/javascript" src="../static/js/library/json.js"></script>
+	<!-- //for global JS -->	
+	<script type="text/javascript" src="../static/js/library/jquery.bootstrap.wizard.min.js"></script>
+
+	<script type="text/javascript" src="../static/js/library/select2.min.js"></script>
+	
+	<script type="text/javascript" src="../static/js/library/fileinput.min.js"></script> 
+
+	<script type="text/javascript" src="../static/js/docking.js"></script>
+
+	<script type="text/javascript">
+		$('#rootwizard').bootstrapWizard({
+			'tabClass': 'bwizard-steps',	
+		});
+		/*onTabShow: function(tab, navigation, index) {
+				var $total = navigation.find('li').length;
+				var $current = index+1;
+				var $percent = ($current/$total) * 100;
+				$('#rootwizard .progress-bar').css({width:$percent+'%'});
+			}*/
+		$("#file-1").fileinput({
+			uploadUrl: '/test/fileUpload',
+			showUpload: false,
+			showPreview: false,	
+			maxFileSize: 1000,
+	        maxFilesNum: 10,
+	        previewFileType:'any'	        
+		});
+		$("#file-2").fileinput({
+			uploadUrl: '/test/fileUpload',
+			showPreview: false,	
+			maxFileSize: 1000,
+	        maxFilesNum: 10,
+	        previewFileType:'any'	        
+		});
+	</script>
+</body>
+</html>

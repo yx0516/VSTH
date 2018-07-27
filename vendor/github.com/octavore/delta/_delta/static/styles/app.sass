@@ -1,0 +1,280 @@
+@import "../node_modules/normalize.css/normalize"
+@import "../node_modules/bourbon/app/assets/stylesheets/bourbon"
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro)
+
+$red1: #FFE1E2
+$red2: darken($red1, 10%)
+$red4: darken($red1, 30%)
+$green0: #ECFFE8
+$green1: #DBF1D7
+$green2: darken($green1, 10%)
+$green3: darken($green1, 20%)
+$green4: #0B3003
+$blue0: #182730
+$blue2: #2A5671
+$blue4: #3B85B1
+$diffChangeColor: #FFFFD7
+
+html, body
+    height: 100%
+    margin: 0
+    font-family: "Source Sans Pro", "Helvetica", sans-serif
+    background: $blue0
+
+html
+  box-sizing: border-box
+
+*, *:before, *:after
+  box-sizing: inherit
+
+.ui-shadow
+    transition: all 0.3s ease-out
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12)
+
+.ui-shadow-hover
+    &:hover
+        background: lighten(#1E323E, 5%)
+        box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15)
+
+.hidden
+    display: none
+
+#app
+    display: flex
+    min-width: 100%
+    min-height: 100%
+    #contents
+        display: flex
+        min-width: 100%
+
+    #sidebar
+        @extend .ui-shadow
+        @include flex(0 0 180px)
+        transition: margin 0.2s ease-in-out
+        color: rgba(255,255,255,0.4)
+        background: $blue0
+        z-index: 3
+        .sidebar-header
+            display: block
+            padding: 8px 12px 6px 18px
+            font-size: 18px
+            color: white
+            text-decoration: none
+            margin-bottom: 10px
+            height: 39px
+            border-bottom: $blue4 1px solid
+            text-transform: lowercase
+
+        .sidebar-inner
+            overflow: scroll
+            height: 100%
+            position: fixed
+            width: 180px
+            .sidebar-subheader
+                padding: 6px 12px 3px
+                font-size: 12px
+                color: rgba(255,255,255,0.2)
+            .sidebar-entry
+                @include user-select(none)
+                cursor: pointer
+                padding: 6px 12px 6px 18px
+                font-size: 14px
+                &:hover
+                    background: $blue2
+                    @extend .ui-shadow
+                &.sidebar-entry-added::before
+                    position: absolute
+                    left: 7px
+                    content: "\2022"
+                    color: $green3
+                &.sidebar-entry-deleted::before
+                    position: absolute
+                    left: 7px
+                    content: "\2022"
+                    color: $red4
+                &.sidebar-entry-selected
+                    @extend .ui-shadow
+                    background: $blue4
+                    color: white
+
+        &.sidebar-show-false
+            box-shadow: none
+            margin-left: -180px
+
+    .button
+        @include user-select(none)
+        position: absolute
+        bottom: 10px
+        right: 10px
+        font-family: "Helvetica Neue"
+        color: white
+        background: #333
+        padding: 8px 16px
+        font-size: 14px
+        display: inline-block
+        border-radius: 4px
+        cursor: default
+        &:hover
+            background: #444
+    pre code
+        line-height: 1.6
+        font-size: 11px
+        font-family: "Menlo", "Monaco", monospace
+
+    #diff
+        @include flex(1 0)
+        display: flex
+        flex-direction: column
+        background: white
+        overflow: hidden
+        .diff-row-padding
+            height: 50px
+            border-bottom: 1px solid #eee
+        .diff-row
+            display: flex
+            flex-grow: 1
+            min-height: 100%
+            width: 100%
+            padding: 0
+            font-size: 11px
+            font-family: "Menlo", "Monaco", monospace
+            &.diff-row-headers
+                position: fixed
+                z-index: 3
+                display: block
+                color: white
+                min-height: inherit
+                height: 40px
+                .diff-pane
+                    + .diff-pane
+                        border-left: 1px solid #444
+                    background: #1E323E
+                    @extend .ui-shadow
+                    padding: 12px 10px
+                    font-size: 13px
+            .hljs
+                padding: 0
+            .gutter
+                @include user-select(none)
+                @include flex(0 0 auto)
+                font-size: 10px
+                background: #fafafa
+                text-align: right
+                border-right: 1px solid #ccc
+                border-left: 1px solid #ccc
+                min-width: 30px
+                color: rgba(0,0,0,0.4)
+                z-index: 2
+                &:first-child
+                    border-left: none
+                .line
+                    &.line-ws, &.ln
+                        background-color: tint($diffChangeColor, 20%)
+                        border-left: 1px solid shade($diffChangeColor, 10%)
+                        border-right: 1px solid shade($diffChangeColor, 10%)
+                        margin-left: -1px
+                        margin-right: -1px
+
+            .line
+                height: 16px
+                line-height: 16px
+                padding: 0px 5px
+                &:last-child
+                    border-bottom: 1px solid #ddd
+                &.line-ws, &.ln, &.la, &.lm
+                    background: white
+
+            &.diff-empty-false
+                .line
+                    display: none
+                    &.line-ws, &.ln, &.la, &.lm
+                        display: block
+            // This section contains css voodoo. basically, we want to
+            // make sure that we display only one divider when hiding code,
+            // but context levels elemenets are distributed something like this:
+            //   i | i i | i i | i i | i
+            // where we only want one divider between each set of pipes, and
+            // also at the beginning and end.
+            // Therefore we take the following approach:
+            // 1. show all of lc-i
+            // 2. hide all of lc-i that is not the first
+            // 3. force display lc-i that follows lc-(i-1)
+            @for $i from 1 through 10
+                &.diff-context-#{$i}
+                    .diff-pane, .gutter
+                        .lc-#{$i}
+                            height: 0px
+                            margin: 14px 0
+                            overflow: hidden
+                            box-shadow: 0 0 10px 1px rgba(0,0,0,0.2)
+                            opacity: 0.3
+                            display: block
+                        .lc-#{$i - 1} + .lc-#{$i}
+                            display: block !important
+                        .lc-#{$i} ~ .lc-#{$i}
+                            display: none
+                        .lc--1
+                            display: none
+                        @for $j from $i+1 to 11
+                            .lc-#{$j}
+                                display: none
+
+            .diff-pane
+                @include flex(1 1 50%)
+                overflow: hidden
+                overflow-x: scroll
+                background: #eee
+                .diff-pane-contents
+                    float: left
+                    background: white
+                    min-width: 100%
+                .line
+                    white-space: pre
+                    tab-size: 4;
+                    background: #eee
+                    .w-add, .w-del, .w-edit
+                        display: inline-block
+                        vertical-align: bottom
+                        height: 16px
+                        &:empty
+                            border-left: 1px solid white
+                            + span:empty
+                                display: none
+                    .w-add
+                        background: $green0
+                        &:empty
+                            border-color: $green1
+                    .w-del
+                        background: $red1
+                        &:empty
+                            border-color: darken($red1, 20%)
+                    .w-edit
+                        background: darken($diffChangeColor, 20%)
+                .lm
+                    opacity: 0.4
+                    background: white
+                .line-ws
+                    background-color: tint($diffChangeColor, 50%)
+                .ln
+                    background-color: $diffChangeColor
+                .line-ws, .ln, .la
+                    .delta-tab:before
+                      content: "\25b8"
+                      color: #ddd
+                      padding-left: 11px
+            #diff-left .la
+                background-color: $red1
+            #diff-right .la
+                background-color: $green0
+            #gutter-left .la
+                background-color: lighten($red1, 5%)
+                border-left: 1px solid $red2
+                margin-left: -1px
+                margin-right: -1px
+                border-right: 1px solid $red2
+            #gutter-right .la
+                background-color: $green1
+                border-left: 1px solid $green2
+                margin-left: -1px
+                margin-right: -1px
+                border-right: 1px solid $green2

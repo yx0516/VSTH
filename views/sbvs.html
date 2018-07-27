@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VSPlatform SBVS</title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+
+    <link rel="stylesheet" type="text/css" href="../static/css/bootstrap.min.css" media="all">
+
+    <link rel="stylesheet" type="text/css" href="../static/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700">
+
+    <link rel="stylesheet" type="text/css" href="../static/css/sidebar.css" />
+
+    <link rel="stylesheet" type="text/css" href="../static/css/common.css" />
+
+    <link rel="stylesheet" type="text/css" href="../static/css/smart_wizard_vertical.css">
+
+    <link rel="stylesheet" type="text/css" href="../static/css/radio.css">
+
+    <link rel="stylesheet" type="text/css" href="../static/css/select2.css">
+
+    <link rel="stylesheet" type="text/css" href="../static/css/fileinput.min.css" media="all">
+
+    <link rel="stylesheet" href="http://tawian.io/text-spinners/spinners.css">
+
+    <link rel="stylesheet" type="text/css" href="../static/css/sbvs.css">
+
+    <style type="text/css">
+
+    </style>
+</head>
+
+<body class="sbvs-page">
+    <div class="container">
+        <ul id="gn-menu" class="gn-menu-main">
+            <li class="gn-trigger">
+                <a class="gn-icon gn-icon-menu"><span>Menu</span></a>
+                <nav class="gn-menu-wrapper">
+                    <div class="gn-scroller">
+                        <ul class="gn-menu">
+                            <li class="gn-search-item">
+                                <input placeholder="Search" type="search" class="gn-search">
+                                <a class="gn-icon gn-icon-search"><span>Search</span></a>
+                            </li>
+                            <li>
+                                <a class="gn-icon gn-icon-library">Library</a>
+                                <ul class="gn-submenu2" data-display="none" style="display: none">
+                                    <li><a class="gn-icon gn-icon-sys-library">Sys Library</a></li>
+                                    <li><a class="gn-icon gn-icon-my-library">My Library</a></li>
+                                </ul>
+                            </li>
+                            <li><a class="gn-icon gn-icon-jobInfo">Jobs</a></li>
+                            <li>
+                                <a class="gn-icon gn-icon-creat">Create</a>
+                                <ul class="gn-submenu" data-display="none" style="display: none">
+                                    <li><a class="gn-icon gn-icon-LBVS">Ligand-based VS</a></li>
+                                    <!-- <li><a class="gn-icon gn-icon-SBVS">Structure-based VS</a></li> -->
+                                    <!-- <li><a class="gn-icon gn-icon-MD underDev">Molecule Modeling</a></li> -->
+                                </ul>
+                            </li>
+                            <li><a class="gn-icon gn-icon-cog underDev">Settings</a></li>
+                            <li><a class="gn-icon gn-icon-help underDev">Help</a></li>
+                            <li><a class="gn-icon gn-icon-info underDev">About us</a></li>
+                        </ul>
+                    </div>
+                    <!-- /gn-scroller -->
+                </nav>
+            </li>
+
+            <li><a href="login.html" id='log' class="">Log in</a></li>
+            <!-- <li><a href="#">Sign up</a></li> labelFinish:"Finish",-->
+            <li><a href="index.html">VSTH</a></li>
+            <!-- <li><a class="codrops-icon codrops-icon-prev" href="#"><span>Previous Demo</span></a></li> -->
+            <li><a class="codrops-icon codrops-icon-drop user-info" href="#"><span>Test User1</span></a></li>
+        </ul>
+    </div>
+    <!-- /container -->
+    <div class="container sbvs-content">
+        <div id="formToUpdate">
+            <div id="wizard" class="swMain">
+                <ul>
+                    <li><a href="#step-1"><span class="stepNumber">1</span><span class="stepDesc">Step 1<br><small>Select PDB</small></span></a></li>
+                    <li><a href="#step-2"><span class="stepNumber">2</span><span class="stepDesc">Step 2<br><small>Select Molecule</small></span></a></li>
+                    <li><a href="#step-3"><span class="stepNumber">3</span><span class="stepDesc">Step 3<br><small>Setting Nodes</small></span></a></li>
+                </ul>
+                <div id="step-1">
+                    <h1 class="StepTitle">Select PDB</h1>
+                    <section class="col-sm-12 template-content template-first">
+                        <div class="sub-template">
+                            <!-- <h1>
+								<span>Please fill all the texts in the fields.</span>
+							</h1> -->
+                            <div class="target-config topSelectSection">
+                                <div class="radio-btn checkedRadio canCheckedRadio">
+                                    <i><input type="radio" value="template"></i>
+                                </div>
+                                <label>Target selection</label>
+                                <div class="type-select">
+                                    <section class="js-selectTarget">
+                                        <span class="textTip">Target :</span>
+                                        <select class="js-selLibTarget" style="width: 77%">
+										</select>
+                                    </section>
+                                    <section class="js-selectPDB ">
+                                        <span class="textTip">PDB :</span>
+                                        <select class="js-selLibPDB" style="width: 77%" name="PDBCode"></select>
+                                    </section>
+                                </div>
+                            </div>
+
+                            <div class="target-config bottomSelectSection">
+                                <div class="radio-btn" disabled="disabled">
+                                    <i><input type="radio" value="manual" disabled="disabled"></i>
+                                </div>
+                                <label>Template upload (under development...)</label>
+
+                                <div class="type-select-2">
+
+                                    <div class="form-group" style="float: left;display: inline-block;width: 85%;margin-top: 10px;">
+                                        <input type="file" name="PDBFile" id="PDBFile">
+                                    </div>
+                                    <button class="btn btn-default clearPDB" style="float: left;display: inline-block;width: 15%;margin-top: 10px;" value="Clear">Clear</button>
+
+                                </div>
+                                <!-- <div class="row set-position" style="display: none">
+														   			<div class="col-sm-6 set-center-site">
+														   				<p>Target Center Settings</p>
+														   				<div class="row form-group">
+														   					<label for="x-coordinate" class="col-sm-5 control-label">X coordinate: </label>
+											   								<div class="col-sm-7">
+											   									<input type="text" class="form-control" id="x-coordinate" placeholder="" name="x-coordinate">
+											   								</div>
+														   				</div>
+														   				<div class="row form-group">
+														   					<label for="y-coordinate" class="col-sm-5 control-label">Y coordinate: </label>
+											   								<div class="col-sm-7">
+											   									<input type="text" class="form-control" id="y-coordinate" placeholder="" name="y-coordinate">
+											   								</div>
+														   				</div>
+														   				<div class="row form-group">
+														   					<label for="z-coordinate" class="col-sm-5 control-label">Z coordinate: </label>
+											   								<div class="col-sm-7">
+											   									<input type="text" class="form-control" id="z-coordinate" placeholder="" name="z-coordinate">
+											   								</div>
+														   				</div>	
+														   			</div>
+														   			<div class="col-sm-6 set-region-site">
+														   				<p>Target site area setting</p>
+														   				<div class="row form-group">
+														   					<label for="region-depth" class="col-sm-2 control-label">Depth: </label>
+											   								<div class="col-sm-7">
+											   									<input type="text" class="form-control" id="region-depth" placeholder="" name="region-depth">
+											   								</div>
+														   				</div>
+														   				<div class="row form-group">
+														   					<label for="region-width" class="col-sm-2 control-label">Width: </label>
+											   								<div class="col-sm-7">
+											   									<input type="text" class="form-control" id="region-width" placeholder=""  name="region-width">
+											   								</div>
+														   				</div>
+														   				<div class="row form-group">
+														   					<label for="region-height" class="col-sm-2 control-label">Height: </label>
+											   								<div class="col-sm-7">
+											   									<input type="text" class="form-control" id="region-height" placeholder="" name="region-height">
+											   								</div>
+														   				</div>							   				
+														   			</div>
+													   			</div> -->
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <div id="step-2">
+                    <h2 class="StepTitle">Select molecule</h2>
+                    <section class="col-sm-12 template-content template-second">
+                        <div class="sub-template">
+                            <!-- <h1>
+								<span>Please fill all the texts in the fields.</span>
+							</h1> -->
+                            <div class="target-config topSelectSection">
+                                <div class="radio-btn checkedRadio canCheckedRadio">
+                                    <i><input type="radio" ></i>
+                                </div>
+                                <label>Screened library selection</label>
+
+                                <div class="type-select">
+                                    <section class="js-selectLibMol select-style">
+                                        <span class="textTip">Library :</span>
+                                        <select class="js-selLibMol" style="width: 77%">								
+											<option value="zinc_ligand_10w_sort" selected="selected" name="zinc">ZINC_Purchasable_Part_100K</option>
+											<option value="zinc_ligand_100w_sort" name="zinc">ZINC_Purchasable_Part_1M</option>
+											<option value="zinc_ligand_1000w_sort" name="zinc">ZINC_All-Purchasable</option>
+											<option value="zinc_ligand_1w_sort" name="zinc">ZINC_Purchasable_Part_10K</option>
+										</select>
+                                    </section>
+                                    <section class="zinc-tips" style="margin-left: 30px;">
+                                        <p class="text-info" style="margin-bottom: 0;font-size: 14px;">Note: <span>100,000 molecules selected in order from "All Purchasable" subset of ZINC database</span></p>
+                                    </section>
+                                </div>
+                            </div>
+
+                            <div class="target-config bottomSelectSection">
+                                <div class="radio-btn " disabled="disabled">
+                                    <i><input type="radio" disabled="disabled"></i>
+                                </div>
+                                <label>Screened library upload  (under development...)</label>
+                                <div class="type-select-2">
+                                    <form class="form-group" style="float: left;display: inline-block;width: 85%;margin-top: 10px;" method="post" enctype=m ultipart/form-data>
+                                        <input type="file" name="molFile" id="molFile">
+                                    </form>
+                                    <button class="btn btn-default clearSD" style="float: left;display: inline-block;width: 15%;margin-top: 10px;" value="Clear">Clear</button>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <div id="step-3">
+                    <h2 class="StepTitle">Nodes setting </h2>
+                    <section class="col-sm-12 template-content">
+                        <div class="set-nodes">
+                            <div class="row form-group nodes-ctrl">
+                                <label for="set-nodes-cnt" class="col-sm-2 control-label">Nodes: </label>
+                                <div class="col-sm-9">
+                                    <select id="set-nodes-cnt" style="width: 77%">
+										<option value="5" selected="selected" >5</option>
+										<option value="10" >10</option>
+										<option value="20" >20</option>
+										<option value="50" >50</option>
+										<option value="100" >100</option>
+										<option value="200" >200</option>
+									</select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- List group -->
+                        <ul class="list-unstyled node-note">
+                            <li class="text-info"><strong>Note　：　</strong></li>
+                            <li class="text-info">The default number of computing nodes used for virtual screening is 5.</li>
+                            <li class="text-info">Each node contains 24 cores.</li>
+                        </ul>
+                    </section>
+                </div>
+                <section class="loading-component">
+                    <span class="loading dots"><samll>Loading</samll></span>
+                </section>
+                <section class="loading-component2">
+                    <span class="loading dots"><samll>Job submitting...</samll></span>
+                </section>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- for global JS -->
+    <script type="text/javascript" src="../static/js/library/jquery-2.2.3.min.js"></script>
+    <script type="text/javascript" src="../static/js/library/bootstrap-3.3.5.min.js"></script>
+    <script type="text/javascript" src="../static/js/library/json.js"></script>
+    <script type="text/javascript" src="../static/js/library/classie.js"></script>
+    <script type="text/javascript" src="../static/js/library/gnmenu.js"></script>
+    <script>
+        new gnMenu(document.getElementById('gn-menu'));
+    </script>
+    <script type="text/javascript" src="../static/js/library/jquery.smartWizard-2.0.min.js"></script>
+
+    <script type="text/javascript" src="../static/js/library/select2.min.js"></script>
+
+    <!-- for file upload style -->
+    <script type="text/javascript" src="../static/js/library/bootstrap-filestyle.min.js"></script>
+
+    <script type="text/javascript" src="../static/js/common.js"></script>
+
+    <script type="text/javascript" src="../static/js/selectName.js"></script>
+
+    <script type="text/javascript" src="../static/js/common.js"></script>
+    <!-- <script type="text/javascript" src="../static/js/account.js"></script> -->
+
+    <script type="text/javascript" src="../static/js/sbvs.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            //upload file initial
+            $('#molFile').filestyle({
+                'placeholder': 'Choose a SD/SDF file'
+            });
+            $("#PDBFile").filestyle({
+                'placeholder': 'Choose a PDB File'
+            });
+        });
+    </script>
+</body>
+
+</html>

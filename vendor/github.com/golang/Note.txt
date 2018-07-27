@@ -1,0 +1,1 @@
+crypto 和 sys 库里的 golang.org/x 要全部改成 github.com/golang

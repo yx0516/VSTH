@@ -1,0 +1,7 @@
+/***********************@group override	**********************************/
+body {
+    background: #34495e;
+}
+.gn-submenu li a {
+	color: #c1c9d1
+}

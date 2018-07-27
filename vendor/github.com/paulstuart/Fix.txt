@@ -1,0 +1,6 @@
+### github.com\paulstuart\ping.go
+141 号精简内容
+Data: []byte("Hello"),
+
+151 行 改成 1500 缓存，不然有时会报溢出
+rb := make([]byte, 1500)

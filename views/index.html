@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VSTH</title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+
+    <link rel="stylesheet" type="text/css" href="../static/css/bootstrap.min.css" media="all">
+
+    <link rel="stylesheet" type="text/css" href="../static/css/font-awesome.min.css">
+
+    <link rel="stylesheet" type="text/css" href="../static/css/sidebar.css" />
+
+    <link rel="stylesheet" type="text/css" href="../static/css/common.css" />
+
+    <link rel="stylesheet" type="text/css" href="../static/css/index.css" />
+
+    <!--[if lt IE 9]>
+	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+</head>
+
+<body>
+    <div class="container">
+        <ul id="gn-menu" class="gn-menu-main">
+            <!-- <li class="gn-trigger">
+				<a class="gn-icon gn-icon-menu"><span>Menu</span></a>
+				<nav class="gn-menu-wrapper">
+					<div class="gn-scroller">
+						<ul class="gn-menu no-log-menu">																
+							<li>									
+								<ul class="gn-submenu index-ul">
+									<li class="gn-search-item">
+										<input type="search" class="gn-search" disabled>
+										<a class="gn-icon gn-icon-search">Search</a>
+									</li>
+									<li><a class="gn-icon gn-icon-jobInfo">My Job</a></li>
+									<li><a class="gn-icon gn-icon-creat">Creat</a></li>
+									
+								</ul>
+							</li>
+							<li><a class="gn-icon gn-icon-cog underDev">Settings</a></li>
+							<li><a class="gn-icon gn-icon-help underDev">Help</a></li>
+							<li><a class="gn-icon gn-icon-info underDev">About us</a></li>	
+						</ul>
+					</div>
+				</nav>
+			</li> -->
+
+            <li class="gn-trigger">
+                <a class="gn-icon gn-icon-menu"><span>Menu</span></a>
+                <nav class="gn-menu-wrapper">
+                    <div class="gn-scroller">
+                        <ul class="gn-menu">
+                            <li class="gn-search-item">
+                                <input placeholder="Search" type="search" class="gn-search">
+                                <a class="gn-icon gn-icon-search"><span>Search</span></a>
+                            </li>
+
+                            <li>
+                                <a class="gn-icon gn-icon-library">Library</a>
+                                <ul class="gn-submenu2" data-display="none" style="display: none">
+                                    <li><a class="gn-icon gn-icon-sys-library">Sys Library</a></li>
+                                    <li><a class="gn-icon gn-icon-my-library">My Library</a></li>
+                                </ul>
+                            </li>
+                            <li><a class="gn-icon gn-icon-jobInfo">Jobs</a></li>
+                            <li>
+                                <a class="gn-icon gn-icon-creat">Create</a>
+                                <ul class="gn-submenu2" data-display="none" style="display: none">
+                                    <li><a class="gn-icon gn-icon-LBVS">Ligand-based VS</a></li>
+                                    <!-- <li><a class="gn-icon gn-icon-SBVS">Structure-based VS</a></li> -->
+                                    <!-- <li><a class="gn-icon gn-icon-MD underDev">Molecule Modeling</a></li> -->
+                                </ul>
+                            </li>
+                            <li><a class="gn-icon gn-icon-cog underDev">Settings</a></li>
+                            <li><a class="gn-icon gn-icon-help underDev">Help</a></li>
+                            <li><a class="gn-icon gn-icon-info underDev">About us</a></li>
+                        </ul>
+                    </div>
+                    <!-- /gn-scroller -->
+                </nav>
+            </li>
+
+            <li><a href="/login.html" id='log' class="">Log in</a></li>
+            <li><a href="/register.html">Sign up</a></li>
+            <li><a href="javascript:void(0);">VSTH</a></li>
+            <!-- <li><a class="codrops-icon codrops-icon-prev" href="#"><span>Previous Demo</span></a></li> -->
+            <li><a class="codrops-icon codrops-icon-drop" href="#"><span></span></a></li>
+        </ul>
+
+    </div>
+    <header class="intro-head">
+        <h1>High Performance Virtual Screening on Tianhe-2
+            <span style="padding-top: 10px;">A platform for high performance virtural screening</span>
+        </h1>
+        <div class='container' style="text-align:center;clear:both;">
+            <h3>Step 1 Select template molecule</h3>
+            <div class="col-md-12"><img src="static/img/1.png" style="width:80%;"></div>
+            <h4>&nbsp;</h4>
+            <h3>Step 2 Select screened library</h3>
+            <div class="col-md-12"><img src="static/img/2.png" style="width:80%;"></div>
+            <h4>&nbsp;</h4>
+            <h3>Step 3 Parameter setting</h3>
+            <div class="col-md-12"><img src="static/img/3.png" style="width:80%;"></div>
+            <h4>&nbsp;</h4>
+            <h3>Result</h3>
+            <div class="col-md-12"><img src="static/img/4.png" style="width:80%;"></div>
+        </div>
+    </header>
+    <!-- /container -->
+
+
+
+
+    <!-- for global JS -->
+    <script type="text/javascript" src="../static/js/library/jquery-2.2.3.min.js"></script>
+    <script type="text/javascript" src="../static/js/library/bootstrap-3.3.5.min.js"></script>
+    <script type="text/javascript" src="../static/js/library/json.js"></script>
+    <script src="../static/js/library/classie.js"></script>
+    <script src="../static/js/library/gnmenu.js"></script>
+    <script>
+        new gnMenu(document.getElementById('gn-menu'));
+        $.ajax({
+            url: 'account/loginOrNot',
+            type: "POST",
+            data: {},
+            dataType: "html"
+        }).done(isLog);
+
+        function isLog(msg) {
+            var jobInfo = JSON.parse(msg);
+            console.log(jobInfo);
+            var log_ = $('#log');
+            if (jobInfo.State == -1) {
+                log_.removeClass('logOut');
+                log_.addClass('logIn');
+                log_.html('Log in');
+                log_.attr('href', '/login.html');
+                $(".user-info span").html();
+                // alert(jobInfo.Msg);
+                return false;
+            } else {
+                if (jobInfo.Data.userid < 0) {
+                    log_.removeClass('logOut');
+                    log_.addClass('logIn');
+                    log_.html('Log in');
+                    log_.attr('href', '/login.html');
+                    $(".user-info span").html();
+                    //$(".loading-component").hide();
+                    // alert(jobInfo.Msg);
+                } else {
+                    log_.removeClass('logIn');
+                    log_.addClass('logOut');
+                    log_.html('Log out');
+                    log_.attr('href', '/account/logout');
+                }
+            }
+        }
+    </script>
+    <script type="text/javascript" src="../static/js/common.js"></script>
+</body>
+
+</html>

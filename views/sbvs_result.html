@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VSPlatform SBVS Result</title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+
+    <link rel="stylesheet" type="text/css" href="../static/css/bootstrap.min.css" media="all">
+
+    <link rel="stylesheet" type="text/css" href="../static/css/font-awesome.min.css">
+
+    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700" > -->
+
+    <link rel="stylesheet" href="http://tawian.io/text-spinners/spinners.css">
+
+    <link rel="stylesheet" type="text/css" href="../static/css/sidebar.css" />
+
+    <link rel="stylesheet" type="text/css" href="../static/css/common.css" />
+
+    <link rel="stylesheet" type="text/css" href="../static/css/result.css">
+
+    <style type="text/css">
+        .btnGroup {
+            display: flex;
+            display: -webkit-flex;
+            flex-flow: row wrap;
+        }
+        
+        .btn {
+            margin: 3px;
+            flex: 1 auto;
+        }
+    </style>
+
+    <!-- for chemdoodle -->
+    <!-- <script src="../static/js/ChemDoodleWeb-libs.js"></script>
+	<script src="../static/js/ChemDoodleWeb-unpacked.js"></script> -->
+
+    <!--[if lt IE 9]>
+	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+</head>
+
+<body>
+    <div class="container">
+        <ul id="gn-menu" class="gn-menu-main">
+            <li class="gn-trigger">
+                <a class="gn-icon gn-icon-menu"><span>Menu</span></a>
+                <nav class="gn-menu-wrapper">
+                    <div class="gn-scroller">
+                        <ul class="gn-menu">
+                            <li class="gn-search-item">
+                                <input placeholder="Search" type="search" class="gn-search">
+                                <a class="gn-icon gn-icon-search"><span>Search</span></a>
+                            </li>
+                            <li>
+                                <a class="gn-icon gn-icon-library">Library</a>
+                                <ul class="gn-submenu2" data-display="none" style="display: none">
+                                    <li><a class="gn-icon gn-icon-sys-library">Sys Library</a></li>
+                                    <li><a class="gn-icon gn-icon-my-library">My Library</a></li>
+                                </ul>
+                            </li>
+                            <li><a class="gn-icon gn-icon-jobInfo">Jobs</a></li>
+                            <li>
+                                <a class="gn-icon gn-icon-creat">Create</a>
+                                <ul class="gn-submenu" data-display="none" style="display: none">
+                                    <li><a class="gn-icon gn-icon-LBVS">Ligand-based VS</a></li>
+                                    <!-- <li><a class="gn-icon gn-icon-SBVS">Structure-based VS</a></li> -->
+                                    <!-- <li><a class="gn-icon gn-icon-MD underDev">Molecule Modeling</a></li> -->
+                                </ul>
+                            </li>
+                            <li><a class="gn-icon gn-icon-cog underDev">Settings</a></li>
+                            <li><a class="gn-icon gn-icon-help underDev">Help</a></li>
+                            <li><a class="gn-icon gn-icon-info underDev">About us</a></li>
+                        </ul>
+                    </div>
+                    <!-- /gn-scroller -->
+                </nav>
+            </li>
+
+            <li><a href="login.html" id='log' class="">Log in</a></li>
+            <!-- <li><a href="#">Sign up</a></li> -->
+            <li><a href="index.html">VSTH</a></li>
+            <!-- <li><a class="codrops-icon codrops-icon-prev" href="#"><span>Previous Demo</span></a></li> -->
+            <li><a class="codrops-icon codrops-icon-drop user-info" href="#"><span>Test User1</span></a></li>
+        </ul>
+    </div>
+    <!-- /container -->
+    <div class="container sbvs-result">
+        <div class="row">
+            <h2 style="text-align: center;font-size: 36px;margin-bottom:10px; background-color: #0099CC;padding: 10px 0;"> Screening Result
+                <a class="pull-right js-downloadMol" title="Download all Molecules" style="font-size: 24px; vertical-align: middle; padding-right: 20px;cursor:pointer;line-height: 44px;"><i class="fa fa-download"></i></a></h2>
+            <!-- <button class="btn btn-default">Return</button>	 -->
+        </div>
+        <div class="row HolyGrail-body">
+            <main class="HolyGrail-content col-md-5 col-xs-5">
+                <!--  蛋白质三维结构显示区域  -->
+                <div id="TDMol-content" class="mol-container" data-style='line'>
+
+                </div>
+                <!--  蛋白质样式修改按钮区域  -->
+                <div id="TDMol-btn" class="btnGroup">
+                    <button class="btn btn-default" value="Stick">Stick</button>
+                    <button class="btn btn-default" value="Line">Line</button>
+                    <button class="btn btn-default" value="Sphere">Sphere</button>
+                    <button class="btn btn-default" value="Cross">Cross</button>
+                    <button class="btn btn-default" value="Cartoon">Cartoon</button>
+                    <button class="btn btn-default" value="Surface">Surface</button>
+                    <button class="btn btn-default" value="RM-Surface">Remove Surface</button>
+                    <button class="btn btn-default" value="Recenter">Recenter</button>
+                    <button class="btn btn-default" value="Default">Default</button>
+                </div>
+                <!--  蛋白质信息显示区域  -->
+                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingOne">
+                            <h4 class="panel-title">
+                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+	                                Target Info
+	                            </a>
+                            </h4>
+                        </div>
+                        <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                            <div class="panel-body list-group tagertInfo">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+            <nav class="HolyGrail-nav col-md-7 col-xs-7" style="padding: 0;">
+                <div class="col-md-6 col-xs-6" style="padding: 0;border-right:5px solid #ccc;">
+                    <!-- 小分子显示区域-->
+                    <div class="molDisplay">
+                    </div>
+                    <!-- 打分及所有供应商名称显示-->
+                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingTwo">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" role="button" data-toggle="collapse" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+		                                Docking Score
+		                            </a>
+                                </h4>
+                            </div>
+                            <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                                <div class="panel-body list-group score"></div>
+                            </div>
+                        </div>
+
+                        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                            <div class="panel panel-default">
+                                <div class="panel-heading" role="tab" id="headingThree">
+                                    <h4 class="panel-title">
+                                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+			                                Supplier Info
+			                            </a>
+                                    </h4>
+                                </div>
+                                <div id="collapseThree" class="panel-collapse collapse " role="tabpanel" aria-labelledby="headingThree">
+                                    <div class="panel-body list-group vendorDetail"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 小分子ID 及property 供应商详情显示 -->
+                <div class="col-md-6 col-xs-6" style="padding: 0;">
+                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                        <!-- 小分子ID -->
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingFour">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" role="button" data-toggle="collapse" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+		                                Molecule List
+		                            </a>
+                                </h4>
+                            </div>
+                            <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+                                <div class="panel-body list-group molIDList">
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 小分子属性 -->
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingFive">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" role="button" data-toggle="collapse" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+		                                Molecule Property
+		                            </a>
+                                </h4>
+                            </div>
+                            <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
+                                <div class="panel-body list-group molPropList">
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 供应商列表 -->
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingSix">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" role="button" data-toggle="collapse" href="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+		                                ZincMolSupply
+		                            </a>
+                                </h4>
+                            </div>
+                            <div id="collapseSix" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSix">
+                                <div class="panel-body list-group vendorList">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <section class="loading-component">
+            <span class="loading dots"><samll>Result loading...</samll></span>
+        </section>
+    </div>
+
+    <!-- for global JS -->
+    <script src="../static/js/library/jquery-2.2.3.min.js"></script>
+    <script src="../static/js/library/bootstrap-3.3.5.min.js"></script>
+    <!-- <script type="text/javascript" src="../static/js/library/prefixfree.min.js"></script> -->
+    <script src="../static/js/library/json.js"></script>
+    <script src="../static/js/library/classie.js"></script>
+    <script src="../static/js/library/gnmenu.js"></script>
+    <script src="../static/js/library/3Dmol-nojquery-min.js"></script>
+    <script>
+        new gnMenu(document.getElementById('gn-menu'));
+    </script>
+
+    <script src="../static/js/common.js"></script>
+    <!-- <script type="text/javascript" src="../static/js/account.js"></script> -->
+
+    <script src="../static/js/sbvs_result.js"></script>
+
+    <script>
+        var glviewer = null;
+        var labels = [];
+
+        var addLabels = function() {
+            var atoms = glviewer.getModel().selectedAtoms({
+                atom: "CA"
+            });
+            for (var a in atoms) {
+                var atom = atoms[a];
+
+                var l = glviewer.addLabel(atom.resn + " " + atom.resi, {
+                    inFront: true,
+                    fontSize: 12,
+                    position: {
+                        x: atom.x,
+                        y: atom.y,
+                        z: atom.z
+                    }
+                });
+                atom.label = l;
+                labels.push(atom);
+            }
+        };
+
+        var colorSS = function(viewer) {
+            //color by secondary structure
+            var m = viewer.getModel();
+            m.setColorByFunction({}, function(atom) {
+                if (atom.ss == 'h') return "magenta";
+                else if (atom.ss == 's') return "orange";
+                else return "white";
+            });
+            viewer.render();
+        };
+
+        var atomcallback = function(atom, viewer) {
+            if (atom.clickLabel === undefined || !atom.clickLabel instanceof $3Dmol.Label) {
+                atom.clickLabel = viewer.addLabel(atom.elem + atom.serial, {
+                    fontSize: 14,
+                    position: {
+                        x: atom.x,
+                        y: atom.y,
+                        z: atom.z
+                    },
+                    backgroundColor: "black"
+                });
+                atom.clicked = true;
+            }
+
+            //toggle label style
+            else {
+
+                if (atom.clicked) {
+                    var newstyle = atom.clickLabel.getStyle();
+                    newstyle.backgroundColor = 0x66ccff;
+
+                    viewer.setLabelStyle(atom.clickLabel, newstyle);
+                    atom.clicked = !atom.clicked;
+                } else {
+                    viewer.removeLabel(atom.clickLabel);
+                    delete atom.clickLabel;
+                    atom.clicked = false;
+                }
+
+            }
+        };
+        var readText = function(input, func) {
+            if (input.files.length > 0) {
+                var file = input.files[0];
+                var reader = new FileReader();
+                reader.onload = function(evt) {
+                    func(evt.target.result, file.name);
+                };
+                reader.readAsText(file);
+                $(input).val('');
+            }
+        };
+        $(document).ready(function() {
+
+            moldata = data = $("#moldata_pdb_large").val();
+            glviewer = $3Dmol.CreateViewer("gldiv", {
+                defaultcolors: $3Dmol.rasmolElementColors
+            });
+            glviewer.setBackgroundColor(0xffffff);
+
+            receptorModel = m = glviewer.addModel(data, "pqr");
+
+            atoms = m.selectedAtoms({});
+
+            for (var i in atoms) {
+                var atom = atoms[i];
+                atom.clickable = true;
+                atom.callback = atomcallback;
+            }
+
+            glviewer.mapAtomProperties($3Dmol.applyPartialCharges);
+            glviewer.zoomTo();
+            glviewer.render();
+
+        });
+    </script>
+</body>
+
+</html>

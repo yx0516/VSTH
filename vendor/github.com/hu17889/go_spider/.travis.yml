@@ -1,0 +1,15 @@
+language: go
+
+go:
+    - 1.2
+    - tip
+
+script:
+    - go test -v ./...
+
+install:
+    - go get github.com/PuerkitoBio/goquery
+    - go get github.com/bitly/go-simplejson
+    - go get golang.org/x/text/encoding/simplifiedchinese
+    - go get golang.org/x/text/transform
+    - go get github.com/garyburd/redigo/redis

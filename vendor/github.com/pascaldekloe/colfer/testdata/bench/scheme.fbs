@@ -1,0 +1,11 @@
+namespace bench;
+
+table FlatBuffers {
+	key:long;
+	host:string;
+	port:int;
+	size:long;
+	hash:ulong;
+	ratio:double;
+	route:bool;
+}

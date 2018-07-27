@@ -1,0 +1,159 @@
+{
+  "Connections": [
+    {
+      "ToRoute": "in",
+      "ToId": "20",
+      "FromId": "12",
+      "Id": "14"
+    },
+    {
+      "ToRoute": "in",
+      "ToId": "12",
+      "FromId": "24",
+      "Id": "13"
+    },
+    {
+      "ToRoute": "in",
+      "ToId": "7",
+      "FromId": "4",
+      "Id": "10"
+    },
+    {
+      "ToRoute": "in",
+      "ToId": "8",
+      "FromId": "4",
+      "Id": "17"
+    },
+    {
+      "ToRoute": "in",
+      "ToId": "24",
+      "FromId": "4",
+      "Id": "25"
+    },
+    {
+      "ToRoute": "in",
+      "ToId": "1",
+      "FromId": "1_2",
+      "Id": "3"
+    },
+    {
+      "ToRoute": "in",
+      "ToId": "1",
+      "FromId": "9",
+      "Id": "11"
+    },
+    {
+      "ToRoute": "in",
+      "ToId": "4",
+      "FromId": "1",
+      "Id": "5"
+    }
+  ],
+  "Blocks": [
+    {
+      "Position": {
+        "Y": 368,
+        "X": 26
+      },
+      "Rule": {
+        "Path": "$num(.LostProperty.NumberOfLostArticles)",
+        "NumSamples": 2
+      },
+      "Type": "timeseries",
+      "Id": "7"
+    },
+    {
+      "Position": {
+        "Y": 233,
+        "X": 196
+      },
+      "Rule": {
+        "Path": ".LostProperty.Category"
+      },
+      "Type": "unpack",
+      "Id": "24"
+    },
+    {
+      "Position": {
+        "Y": 167,
+        "X": 30
+      },
+      "Rule": {
+        "Path": ".body"
+      },
+      "Type": "parsexml",
+      "Id": "4"
+    },
+    {
+      "Position": {
+        "Y": 97,
+        "X": 119
+      },
+      "Rule": {
+        "UrlPath": "",
+        "Url": "http://advisory.mtanyct.info/LPUWebServices/CurrentLostProperty.aspx",
+        "Method": "GET",
+        "Headers": {},
+        "BodyPath": "."
+      },
+      "Type": "webRequest",
+      "Id": "1"
+    },
+    {
+      "Position": {
+        "Y": 8,
+        "X": 209
+      },
+      "Rule": null,
+      "Type": "bang",
+      "Id": "9"
+    },
+    {
+      "Position": {
+        "Y": 301,
+        "X": 260
+      },
+      "Rule": {
+        "Path": ".SubCategory"
+      },
+      "Type": "unpack",
+      "Id": "12"
+    },
+    {
+      "Position": {
+        "Y": 309,
+        "X": 83
+      },
+      "Rule": {
+        "Path": "$num(.LostProperty.NumberOfItemsclaimed)",
+        "NumSamples": 2
+      },
+      "Type": "timeseries",
+      "Id": "8"
+    },
+    {
+      "Position": {
+        "Y": 5,
+        "X": 38
+      },
+      "Rule": {
+        "Interval": "15m0s"
+      },
+      "Type": "ticker",
+      "Id": "1_2"
+    },
+    {
+      "Position": {
+        "Y": 367,
+        "X": 310
+      },
+      "Rule": {
+        "ValuePath": ".count",
+        "TimeToLive": "30m",
+        "KeyPath": ".SubCategory"
+      },
+      "Type": "cache",
+      "Id": "20"
+    }
+  ]
+}

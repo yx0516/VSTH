@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VSPlatform LBVS</title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+
+    <link rel="stylesheet" type="text/css" href="../static/css/bootstrap.min.css" media="all">
+
+    <link rel="stylesheet" type="text/css" href="../static/css/font-awesome.min.css">
+
+    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700" > -->
+
+    <link rel="stylesheet" type="text/css" href="../static/css/sidebar.css" />
+
+    <link rel="stylesheet" type="text/css" href="../static/css/common.css" />
+
+    <link rel="stylesheet" type="text/css" href="../static/css/smart_wizard_vertical.css">
+
+    <link rel="stylesheet" type="text/css" href="../static/css/jqpagination.css">
+
+    <link rel="stylesheet" type="text/css" href="../static/css/radio.css">
+
+    <link rel="stylesheet" type="text/css" href="../static/css/select2.css">
+
+    <link rel="stylesheet" type="text/css" href="../static/css/fileinput.min.css" media="all">
+
+    <link rel="stylesheet" href="http://tawian.io/text-spinners/spinners.css">
+
+    <link rel="stylesheet" type="text/css" href="../static/css/sbvs.css">
+
+    <!--[if lt IE 9]>
+	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+    <style type="text/css">
+        .simpleInfo .molID {
+            display: none;
+        }
+        
+        .mol-container {
+            background-color: white;
+        }
+    </style>
+</head>
+
+<body class="lbvs-page">
+    <div class="container">
+        <ul id="gn-menu" class="gn-menu-main">
+            <li class="gn-trigger">
+                <a class="gn-icon gn-icon-menu"><span>Menu</span></a>
+                <nav class="gn-menu-wrapper">
+                    <div class="gn-scroller">
+                        <ul class="gn-menu">
+                            <li class="gn-search-item">
+                                <input placeholder="Search" type="search" class="gn-search">
+                                <a class="gn-icon gn-icon-search"><span>Search</span></a>
+                            </li>
+                            <li>
+                                <a class="gn-icon gn-icon-library">Library</a>
+                                <ul class="gn-submenu2" data-display="none" style="display: none">
+                                    <li><a class="gn-icon gn-icon-sys-library">Sys Library</a></li>
+                                    <li><a class="gn-icon gn-icon-my-library">My Library</a></li>
+                                </ul>
+                            </li>
+                            <li><a class="gn-icon gn-icon-jobInfo">Jobs</a></li>
+                            <li>
+                                <a class="gn-icon gn-icon-creat">Create</a>
+                                <ul class="gn-submenu" data-display="none" style="display: none">
+                                    <li><a class="gn-icon gn-icon-LBVS">Ligand-based VS</a></li>
+                                    <!-- <li><a class="gn-icon gn-icon-SBVS">Structure-based VS</a></li> -->
+                                    <!-- <li><a class="gn-icon gn-icon-MD underDev">Molecule Modeling</a></li> -->
+                                </ul>
+                            </li>
+                            <li><a class="gn-icon gn-icon-cog underDev">Settings</a></li>
+                            <li><a class="gn-icon gn-icon-help underDev">Help</a></li>
+                            <li><a class="gn-icon gn-icon-info underDev">About us</a></li>
+                        </ul>
+                    </div>
+                    <!-- /gn-scroller -->
+                </nav>
+            </li>
+            <li><a href="login.html" id='log' class="">Log in</a></li>
+            <!-- <li><a href="#">Sign up</a></li> labelFinish:"Finish",-->
+            <li><a href="index.html">VSTH</a></li>
+            <!-- <li><a class="codrops-icon codrops-icon-prev" href="#"><span>Previous Demo</span></a></li> -->
+            <li><a class="codrops-icon codrops-icon-drop user-info" href="#"><span></span></a></li>
+        </ul>
+    </div>
+    <!-- /container -->
+    <div class="container sbvs-content">
+        <div id="wizard" class="swMain">
+            <ul>
+                <li><a href="#step-1"><span class="stepNumber">1</span><span class="stepDesc">Step 1<br><small>Select Template Molecule</small></span></a></li>
+                <li><a href="#step-2"><span class="stepNumber">2</span><span class="stepDesc">Step 2<br><small>Select Library of molecules</small></span></a></li>
+                <li><a href="#step-3"><span class="stepNumber">3</span><span class="stepDesc">Step 3<br><small>Setting Nodes</small></span></a></li>
+                <li style="height: 200px; display: none;" class="selectMolContent">
+                    <p class="selMolID-left">Selected Molecule ID: <span></span></p>
+                    <div id="molContainer-left" data-style='line'>
+                        <p class="simpleInfo">
+                            <a href="javascript:void(0)" class="pull-right activity" style="height: 20px;"></a><br>
+                            <a href="javascript:void(0)" class="pull-right selectMOlname" style="height: 20px;"></a>
+                        </p>
+                    </div>
+                </li>
+            </ul>
+            <div id="step-1">
+                <h1 class="StepTitle">Step 1 Select template molecule</h1>
+                <div class="col-sm-12 template-content template-first">
+                    <div class="sub-template">
+                        <!-- <h1>
+							<span>Please fill all the texts in the fields.</span>
+						</h1> -->
+                        <div class="target-config topSelectSection">
+                            <div class="radio-btn checkedRadio big-radio canCheckedRadio">
+                                <i><input type="radio" name="template-radio-auto" value="template"></i>
+                            </div>
+                            <label>Template molecule</label>
+                            <div class="type-select">
+                                <section class="js-selectTarget">
+                                    <span class="textTip">Target :</span>
+                                    <select class="js-selTarget" style="width: 77%"></select>
+                                </section>
+                            </div>
+                            <div class="mol-structure" style="display: none;">
+                                <div class="container-0 mol-container">
+                                    <div id="container-0" class="mol-canvas" data-style='line'></div>
+                                    <div class="funcBars1">
+                                        <p class="molselect js-molselect radio-btn small-radio">
+                                            <i><input type="radio" value="template" id="molSelector_0" class="pull-left"></i>
+                                        </p>
+                                        <p class="viewMolInfo js-molInfoPopup">
+                                            <a href="javascript:void(0)" class="pull-right"><i class="fa fa-plus"></i></a>
+                                        </p>
+                                    </div>
+                                    <div class="funcBars2">
+                                        <p class="simpleInfo">
+                                            <a href="javascript:void(0)" class="pull-left molName"></a><br>
+                                            <a href="javascript:void(0)" class="pull-left activity"></a>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="container-1 mol-container">
+                                    <div id="container-1" class="mol-canvas" data-style='line'></div>
+                                    <div class="funcBars1">
+                                        <p class="molselect js-molselect radio-btn small-radio">
+                                            <i><input type="radio" value="template" id="molSelector_1" class="pull-left"></i>
+                                        </p>
+                                        <p class="viewMolInfo js-molInfoPopup">
+                                            <a href="javascript:void(0)" class="pull-right"><i class="fa fa-plus"></i></a>
+                                        </p>
+                                    </div>
+                                    <div class="funcBars2">
+                                        <p class="simpleInfo">
+                                            <a href="javascript:void(0)" class="pull-left molName"></a><br>
+                                            <a href="javascript:void(0)" class="pull-left activity"></a>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="container-2 mol-container">
+                                    <div id="container-2" class="mol-canvas" data-style='line'></div>
+                                    <div class="funcBars1">
+                                        <p class="molselect js-molselect radio-btn small-radio">
+                                            <i><input type="radio" value="template" id="molSelector_2" class="pull-left"></i>
+                                        </p>
+                                        <p class="viewMolInfo js-molInfoPopup">
+                                            <a href="javascript:void(0)" class="pull-right"><i class="fa fa-plus"></i></a>
+                                        </p>
+                                    </div>
+                                    <div class="funcBars2">
+                                        <p class="simpleInfo">
+                                            <a href="javascript:void(0)" class="pull-left molName"></a><br>
+                                            <a href="javascript:void(0)" class="pull-left activity"></a>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="container-3 mol-container">
+                                    <div id="container-3" class="mol-canvas" data-style='line'></div>
+                                    <div class="funcBars1">
+                                        <p class="molselect js-molselect radio-btn small-radio">
+                                            <i><input type="radio" value="template" id="molSelector_3" class="pull-left"></i>
+                                        </p>
+                                        <p class="viewMolInfo js-molInfoPopup">
+                                            <a href="javascript:void(0)" class="pull-right"><i class="fa fa-plus"></i></a>
+                                        </p>
+                                    </div>
+                                    <div class="funcBars2">
+                                        <p class="simpleInfo">
+                                            <a href="javascript:void(0)" class="pull-left molName"></a><br>
+                                            <a href="javascript:void(0)" class="pull-left activity"></a>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="container-4 mol-container">
+                                    <div id="container-4" class="mol-canvas" data-style='line'></div>
+                                    <div class="funcBars1">
+                                        <p class="molselect js-molselect radio-btn small-radio">
+                                            <i><input type="radio" value="template" id="molSelector_4" class="pull-left"></i>
+                                        </p>
+                                        <p class="viewMolInfo js-molInfoPopup">
+                                            <a href="javascript:void(0)" class="pull-right"><i class="fa fa-plus"></i></a>
+                                        </p>
+                                    </div>
+                                    <div class="funcBars2">
+                                        <p class="simpleInfo">
+                                            <a href="javascript:void(0)" class="pull-left molName"></a><br>
+                                            <a href="javascript:void(0)" class="pull-left activity"></a>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="container-5 mol-container">
+                                    <div id="container-5" class="mol-canvas" data-style='line'></div>
+                                    <div class="funcBars1">
+                                        <p class="molselect js-molselect radio-btn small-radio">
+                                            <i><input type="radio" value="template" id="molSelector_5" class="pull-left"></i>
+                                        </p>
+                                        <p class="viewMolInfo js-molInfoPopup">
+                                            <a href="javascript:void(0)" class="pull-right"><i class="fa fa-plus"></i></a>
+                                        </p>
+                                    </div>
+                                    <div class="funcBars2">
+                                        <p class="simpleInfo">
+                                            <a href="javascript:void(0)" class="pull-left molName"></a><br>
+                                            <a href="javascript:void(0)" class="pull-left activity"></a>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="container-6 mol-container">
+                                    <div id="container-6" class="mol-canvas" data-style='line'></div>
+                                    <div class="funcBars1">
+                                        <p class="molselect js-molselect radio-btn small-radio">
+                                            <i><input type="radio" value="template" id="molSelector_6" class="pull-left"></i>
+                                        </p>
+                                        <p class="viewMolInfo js-molInfoPopup">
+                                            <a href="javascript:void(0)" class="pull-right"><i class="fa fa-plus"></i></a>
+                                        </p>
+                                    </div>
+                                    <div class="funcBars2">
+                                        <p class="simpleInfo">
+                                            <a href="javascript:void(0)" class="pull-left molName"></a><br>
+                                            <a href="javascript:void(0)" class="pull-left activity"></a>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="container-7 mol-container">
+                                    <div id="container-7" class="mol-canvas" data-style='line'></div>
+                                    <div class="funcBars1">
+                                        <p class="molselect js-molselect radio-btn small-radio">
+                                            <i><input type="radio" value="template" id="molSelector_7" class="pull-left"></i>
+                                        </p>
+                                        <p class="viewMolInfo js-molInfoPopup">
+                                            <a href="javascript:void(0)" class="pull-right"><i class="fa fa-plus"></i></a>
+                                        </p>
+                                    </div>
+                                    <div class="funcBars2">
+                                        <p class="simpleInfo">
+                                            <a href="javascript:void(0)" class="pull-left molName"></a><br>
+                                            <a href="javascript:void(0)" class="pull-left activity"></a>
+                                        </p>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="JQ_pagination pull-right" id="paginate" style="display: none">
+                                <a href="#" class="first" data-action="first">&laquo;</a>
+                                <a href="#" class="previous" data-action="previous">&lsaquo;</a>
+                                <input type="text" readonly="readonly" data-max-page="40" />
+                                <a href="#" class="next" data-action="next">&rsaquo;</a>
+                                <a href="#" class="last" data-action="last">&raquo;</a>
+                            </div>
+                        </div>
+
+                        <div class="target-config bottomSelectSection" style="margin-top: 0px; padding-bottom: 10px; padding-top: 10px;    border-top: 1px solid #ddd;">
+                            <div class="radio-btn big-radio canCheckedRadio">
+                                <i><input type="radio" name="template-radio-manual" value="manual"></i>
+                            </div>
+                            <label>Upload a template</label>
+                            <div class="type-select-2">
+                                <form enctype="multipart/form-data" style="float: left;width: 84%;margin-top: 10px;">
+                                    <div class="form-group">
+                                        <input id="queryMol" class="file" type="file" name="user-file">
+                                    </div>
+                                </form>
+                                <button class="btn btn-default clearSD" style="float: left;width: 15%;margin-top: 10px;" value="Clear">Clear</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="molDetail panel panel-primary table-responsive">
+                    <div class="panel-heading">
+                        Molecule infomation
+                    </div>
+                    <div class="panel-body">
+                        <table class="table table-bordered table-striped table-hover">
+                            <tbody>
+                            </tbody>
+                        </table>
+                        <p class="close"><span class="fa fa-close"></span></p>
+                    </div>
+                </div>
+
+            </div>
+            <div id="step-2">
+                <h2 class="StepTitle">Step 2 Select screened library</h2>
+                <section class="col-sm-12 template-content template-second">
+                    <div class="sub-template">
+                        <!-- <h1>
+							<span>Please fill all the texts in the fields.</span>
+						</h1> -->
+                        <div class="target-config topSelectSection">
+
+                            <div class="radio-btn checkedRadio big-radio canCheckedRadio">
+                                <i><input type="radio" name="radio-btn" checked="checked"></i>
+                            </div>
+                            <label>Screened Sys library</label>
+
+                            <div class="type-select">
+                                <section class="js-selectLibMol select-style">
+                                    <span class="textTip">Library :</span>
+                                    <select class="js-sysLib" style="width: 77%">               
+                                    </select>
+                                </section>
+                                <!--<section class="zinc-tips" style="margin-left: 30px;">
+                                    <p class="text-info" style="margin-bottom: 0;font-size: 14px;">Note: <span>'All Purchasable' subset of ZINC database, totally 22,724,825 molecules, up to 50 conformers per molecule.</span></p>
+                                </section>-->
+                            </div>
+                        </div>
+
+                        <div class="target-config bottomSelectSection">
+                            <div class="radio-btn big-radio user-btn canCheckedRadio">
+                                <i><input type="radio" name="radio-btn"></i>
+                            </div>
+                            <label>Screened my library</label>
+                            <div class="type-select js-select-myLib">
+                                <section>
+                                    <span class="textTip">Library :</span>
+                                    <select class="js-myLib select-style" style="width: 77%"> 
+                                    </select>
+                                </section>
+                                <section class="zinc-tips user-tips" style="margin-left: 30px;">
+                                    <p class="text-info" style="margin-bottom: 0;font-size: 14px;">Note: <span>'User library will be available after login.</span></p>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div id="step-3">
+                <h2 class="StepTitle">Step 3 Parameter settings </h2>
+                <section class="col-sm-12 template-content">
+                    <div class="set-nodes">
+                        <div class="row form-group nodes-ctrl">
+                            <label for="set-nodes-cnt" class="col-sm-2 control-label">Nodes: </label>
+                            <div class="col-sm-9">
+                                <select id="set-nodes-cnt" style="width: 77%">
+									<option value="2" selected="selected" >4</option>
+									<option value="4" >8</option>
+									<option value="6" >12</option>
+									<option value="8" >16</option>
+									<!--<option value="100" >100</option>-->
+									<!--<option value="200" >200</option>-->
+								</select>
+                                <!-- <input type="text" class="form-control" id="set-nodes-cnt" placeholder="Enter the number of nodes(1-1000)"> -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- List group -->
+                    <ul class="list-unstyled node-note">
+                        <li class="text-info"><strong>Note　：　</strong></li>
+                        <li class="text-info">The default number of computing nodes used for virtual screening is 4.</li>
+                        <li class="text-info">Each computing node contains 24 cores.</li>
+						<li class="text-info">So far, only 1 note can be used for screening user's own library.</li>
+                    </ul>
+                </section>
+            </div>
+            <section class="loading-component">
+                <span class="loading dots" style="margin-left: 420px;"><samll>Loading...</samll></span><br>
+                <span style="display: inline-block;margin-left:350px;color: #FF9966">It takes time to load hundreds of ligand, please wait for a while... </span>
+            </section>
+            <section class="loading-component2">
+                <span class="loading dots"><samll>Job submitting...</samll></span>
+            </section>
+        </div>
+    </div>
+
+
+
+    <!-- for global JS -->
+    <script type="text/javascript" src="../static/js/library/jquery-2.2.3.min.js"></script>
+    <script type="text/javascript" src="../static/js/library/bootstrap-3.3.5.min.js"></script>
+    <script type="text/javascript" src="../static/js/library/json.js"></script>
+    <script type="text/javascript" src="../static/js/library/classie.js"></script>
+    <script type="text/javascript" src="../static/js/library/gnmenu.js"></script>
+    <script>
+        new gnMenu(document.getElementById('gn-menu'));
+    </script>
+    <script type="text/javascript" src="../static/js/library/jquery.smartWizard-2.0.min.js"></script>
+
+    <script type="text/javascript" src="../static/js/library/select2.min.js"></script>
+
+    <script type="text/javascript" src="../static/js/library/bootstrap-filestyle.min.js"></script>
+
+    <script type="text/javascript" src="../static/js/lbvs_tar_json.js"></script>
+
+    <script type="text/javascript" src="../static/js/library/jquery.jqpagination.min.js"></script>
+
+    <script type="text/javascript" src="../static/js/library/3Dmol-nojquery-min.js"></script>
+
+    <script type="text/javascript" src="../static/js/common.js"></script>
+    <!-- <script type="text/javascript" src="../static/js/account.js"></script> -->
+
+    <script type="text/javascript" src="../static/js/lbvs.js"></script>
+
+    <script type="text/javascript">
+        $('#libraryMol').filestyle({
+            'placeholder': 'Choose a library molecule file'
+        });
+        $("#queryMol").filestyle({
+            'placeholder': 'Choose a query molecule file'
+        });
+    </script>
+
+</body>
+
+</html>

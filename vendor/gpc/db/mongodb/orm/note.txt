@@ -1,0 +1,2 @@
+依赖 gpc/db/mongodb/conn/gsession 包
+需要初始化 session

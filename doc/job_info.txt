@@ -1,0 +1,11 @@
+type JobInfo struct {
+	xorm.ModelPublic `bson:"-" json:"-"`
+	Id               int
+	UserId           int
+	Type             ctype.JobType   `chk:"in=1,2" !null:"in=1,2" null:"in!=1,2"`               //1:WEGA, 2:Docking
+	Status           ctype.JobStatus `xorm:"update" chk:"in=1,2" !null:"in=1,2" null:"in!=1,2"` //1:Run, 2:Finish
+	StartTime        time.Time
+	FinishTime       time.Time    `xorm:"update" `
+	Results          []*JobResult `xorm:"update" `
+	ResCount         int          `def:"-1` // -1: 没有获取结果
+}
