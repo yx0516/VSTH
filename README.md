@@ -20,8 +20,9 @@ $ tree VSTH
 
 
 # 2. How to compile
-
-go build main.go
-
+The back-end of VSTH is written by golang. It is easy to launch web services by using go commnandm.
+```
+$ go build main.go
+```
 
 
