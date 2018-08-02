@@ -22,7 +22,7 @@ $ tree VSTH
 
 VSTH implementation details are described in the following table.
 
-| Tools	Version	Purpose	|Linkage|
+| Tools	|Version	|Purpose	|Linkage|
 | --------   | -----:   | :----: |
 |WEGA	       |1.0	      |Molecule structure similarity calculation	 |-
 |OpenBabel	  |2.4.1	    |Chemical file format conversion	           |http://openbabel.org/wiki/Main_Page |
