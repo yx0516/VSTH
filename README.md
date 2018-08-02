@@ -34,7 +34,7 @@ VSTH implementation details are described in the following table.
 
 
 # 2. How to compile
-The back-end of VSTH is written by golang. It is easy to launch web services by using go commnandm.
+The back-end of VSTH is written by golang. It is easy to launch web services by using go command.
 ```
 $ go build main.go
 ```
