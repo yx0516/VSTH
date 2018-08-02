@@ -1,5 +1,5 @@
 # VSTH
-
+ VSTH is a web server that allows the end user to virtually screen the big compound library by employing high-performance computing power available on Tianhe-2.
 
 
 # 1. Code structure
