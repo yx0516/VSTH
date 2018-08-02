@@ -24,7 +24,7 @@ VSTH implementation details are described in the following table.
 
 | Tools	|Version	|Purpose	|Linkage|
 | --------   | -----:   | :----: |
-|WEGA	       |1.0	      |Molecule structure similarity calculation	 |-
+|WEGA	       |1.0	      |Molecule structure similarity calculation	 |- |
 |OpenBabel	  |2.4.1	    |Chemical file format conversion	           |http://openbabel.org/wiki/Main_Page |
 |3Dmol.js	   |-	        |3D structure display	                      |http://3dmol.csb.pitt.edu/ | 
 |HHVSF	      |1.0	      |A framework to accelerate large scale VS on supercomputer	 | https://github.com/pincher-chen/HHVSF |
