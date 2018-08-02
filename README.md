@@ -1,4 +1,4 @@
-# VSTH
+# VSTH: a web server for ligand-based virtual screening on Tianhe-2
  VSTH is a web server that allows the end user to virtually screen the big compound library by employing high-performance computing power available on Tianhe-2.The VSTH is free and open to all users at http://114.67.37.143:9081.
 
 
