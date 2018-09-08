@@ -40,3 +40,4 @@ $ go build main.go
 ```
 It is necessary to mention that the third part packages used in VSTH has been put into the 'vendor' folder. The verison of golang used to compile this project should support the 'vendor' folder. The latest version of golang (1.10) is recommended.
 
+When you deploy this project on your own computing system, the configure file 'app.conf' in the conf folder should be edited for your own configure.
