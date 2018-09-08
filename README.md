@@ -38,5 +38,5 @@ The back-end of VSTH is written by golang. It is easy to launch web services by 
 ```
 $ go build main.go
 ```
-
+It is necessary to mention that the third part packages used in VSTH has been put into the 'vendor' folder. The verison of golang used to compile this project should support the 'vendor' folder. The latest version of golang (1.10) is recommended.
 
